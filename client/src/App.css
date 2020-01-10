@@ -1,0 +1,22 @@
+body{
+  background:white;
+}
+#navbar{
+  background-color: #70C1B3;
+  color: white;
+}
+#navbar a{
+  color: white
+}
+.jumbotron{
+  background-image:url('./img/ladypaint.jpg')  ;
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  /* object-fit: fill; */
+  /* opacity: 0.7; */
+  background-position: top;
+  
+}
+
+/* linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), */
+
