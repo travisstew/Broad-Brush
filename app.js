@@ -9,7 +9,8 @@ const PORT = process.env.PORT || 5000;
 app.use(express.static('public'));
 
 //mongoose config 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/newsScrap';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/broadbrush';
+
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true ,useFindAndModify: false}).then(()=>{
   console.log('mongo connected');
 }).catch(err=>{

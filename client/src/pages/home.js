@@ -2,15 +2,26 @@ import React from 'react';
 
 function Home(){
   return (
+    <>
     <div className="jumbotron">
-         
+        <div className="float-right">
+
+      
         <h1 className="display-4">Hello, world!</h1>
-        <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr className="my-4"/>
         <p>It uses utility classNamees for typography and spacing to space content out within the larger container.</p>
-        <a className="btn btn-primary btn-lg" href="/" role="button">Learn more</a>
-     
+         <a  id="signin-btn" className="btn  btn-lg" href="/" role="button">Sign In</a> 
+         </div>
+   
     </div>
+
+    <div className="container">
+        <div className="homepage-gallery-text">
+            <h4 id="homepage-logo">Logo</h4>
+            <p id="local-artist">Find Local & Nationwide Arist and Creators</p>
+            <p id="view-gallery">View Gallery</p>
+      </div>
+    </div>
+    </>
   );
 }
 export default Home;
