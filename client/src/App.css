@@ -58,4 +58,9 @@ form{
 .footer{
   background: #70C1B3;
   padding: 5rem;
+  
+}
+#main{
+  min-height: 100vh;
+  height: 100rem;
 }

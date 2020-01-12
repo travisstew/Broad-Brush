@@ -5,11 +5,9 @@ function Home(){
     <>
     <div className="jumbotron">
         <div className="float-right">
-
-      
         <h1 className="display-4">Hello, world!</h1>
         <p>It uses utility classNamees for typography and spacing to space content out within the larger container.</p>
-         <a  id="signin-btn" className="btn  btn-lg" href="/" role="button">Sign In</a> 
+         <a  id="signin-btn" className="btn  btn-lg" href="/signin" role="button">Sign In</a> 
          </div>
    
     </div>

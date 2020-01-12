@@ -1,36 +1,53 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 
 class Register extends Component {
-  state = { 
-    email:"",
-    name:"",
-    password:"",
-    password2:"",
+  constructor(props) {
+    super(props);
+    
+  this.state = { 
+    email:" ",
+    name: " ",
+    password:" ",
+    password2:" ",
    }
 
+   this.changehandler = this.changehandler.bind(this);
+   this.submit = this.submit.bind(this);
+  }
 
+  changehandler(e){
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
 
+  submit(e){
+    e.preventDefault();
+    const {name,password,email} = this.state
+
+    Axios.post('/register', {name:name,password:password,email:email}).then(res=>{
+      console.log(res);
+      
+    }) 
+  } 
   render() { 
     return (
             <div>
-              <form>
-                <div class="form-group">
+              <form  onSubmit={this.submit}>
+              
                   <label >Email</label>
-                  <input type="text" name="email" class="form-control" id="formGroupExampleInput" placeholder=""/>
-                </div>
-                <div class="form-group">
+                  <input type="email" name="email" onChange={this.changehandler} value={this.state.email}  />
+
                   <label >Name</label>
-                  <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder=""/>
-                </div>
-                <div class="form-group">
+                  <input type="text" name="name" onChange={this.changehandler} value={this.state.name} />
+              
+              
                   <label >Password</label>
-                  <input type="text" name="password" class="form-control" id="formGroupExampleInput" placeholder=""/>
-                </div>
-                <div class="form-group">
-                  <label >Confirm Password</label>
-                  <input type="text" name="password2" class="form-control" id="formGroupExampleInput" placeholder=""/>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                  <input type="password" name="password"     onChange={this.changehandler} value={this.state.password} />
+    
+                
+                <button type="submit" className="btn btn-primary">Submit</button>
               </form>
             </div>
            );

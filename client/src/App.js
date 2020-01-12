@@ -8,6 +8,7 @@ import Dashboard from "./pages/dashboard";
 import SignIn from "./pages/signin";
 import Footer from "./components/Footer";
 import Register from "./pages/register";
+import Profile from "./pages/Profiles";
 
 // Check for token to keep user logged in
 
@@ -17,13 +18,17 @@ class App extends Component {
           <Router>
             <div>
               <Navbar/>
+              <div id='main'>
               <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/dashboard" component={Dashboard}></Route>
                 <Route exact path="/signin" component={SignIn}></Route>
                 <Route exact path="/register" component={Register}></Route>
+                <Route exact path="/profile/:profileId" component={Profile}></Route>
                 <Route component={NotFound}></Route>
               </Switch>
+
+              </div>
               <Footer />
             </div>
           </Router>

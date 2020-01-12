@@ -1,6 +1,6 @@
 const express =  require('express');
 const mongoose = require('mongoose');
-
+// const cors = require('cors');
 
 const app = express();
 
@@ -16,11 +16,12 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
 }).catch(err=>{
   console.log(err);
 });
-
+// app.use(cors());
 //body parser
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
+app.use('/', require('./routes/userRoute'));
 
 app.listen(PORT,function () { 
   console.log('listening on port ' + PORT);
