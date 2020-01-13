@@ -64,3 +64,27 @@ form{
   min-height: 100vh;
   height: 100rem;
 }
+
+#card-img{
+  /* background: wheat; */
+      background-image: url('./img/headshot.png');
+     /* margin: auto; */
+      height: 10rem;
+      margin-left: 2rem;
+      border-radius: 99px;
+      width: 13rem
+    
+}
+.card{
+  width: 18rem;
+  margin-top: 10rem;
+  padding-top: 4rem;
+  padding-bottom: 1.5rem;
+  background-color: #F8F8F8;
+  box-shadow: 3px 5px 9px 3px lightgrey;
+  width: 16rem;
+  height: 28rem;
+}
+/* .card:hover {
+  transform: scale(1.3); 
+} */
