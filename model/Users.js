@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new mongoose.Schema({
-
   email:{
     unique: true,
     type: String
@@ -21,7 +20,12 @@ const UserSchema = new mongoose.Schema({
     type: String
   },
   pic:{type:String},
-  artwork:[{name:{type:String},pic:{type:String}}]
+  artwork:[{name:{type:String},pic:{type:String}}],
+
+  profileImg: {
+    type: String
+},
+zip:{type:String}
 
 });
 

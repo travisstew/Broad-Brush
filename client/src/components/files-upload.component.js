@@ -25,7 +25,8 @@ export default class FilesUploadComponent extends Component {
         axios.post("http://localhost:5000/api/user-profile", formData, {
         }).then(res => {
             console.log(res)
-        })
+        });
+        this.setState({profileImg:''});
     }
 
     render() {

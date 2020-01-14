@@ -45,16 +45,19 @@ body{
   padding-top: 6rem;
   padding-left: 5rem;
 }
-form{
+.form{
   width: 15rem;
   margin: auto;
   margin-top: 10rem;
  
 }
-/* #form{
-  border: solid thin black;
- 
-} */
+#zip-input{
+  height: 1.8rem;
+}
+#zip-button{
+  padding: .1rem;
+    background: #F25F5C;
+}
 .footer{
   background: #70C1B3;
   padding: 5rem;
