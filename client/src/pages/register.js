@@ -35,18 +35,18 @@ class Register extends Component {
     return (
             <div>
               <form  onSubmit={this.submit}>
-              
-                  <label >Email</label>
-                  <input type="email" name="email" onChange={this.changehandler} value={this.state.email}  />
-
-                  <label >Name</label>
-                  <input type="text" name="name" onChange={this.changehandler} value={this.state.name} />
-              
-              
-                  <label >Password</label>
-                  <input type="password" name="password"     onChange={this.changehandler} value={this.state.password} />
-    
-                
+                <div class="form-group">
+                    <label >Email</label>
+                    <input type="email" name="email" class="form-control" onChange={this.changehandler} value={this.state.email}  />
+                </div>
+                <div class="form-group">
+                    <label >Name</label>
+                    <input type="text" name="name" onChange={this.changehandler} value={this.state.name} />
+                </div>
+                <div class="form-group">
+                    <label >Password</label>
+                    <input type="password" name="password"     onChange={this.changehandler} value={this.state.password} />
+                </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
               </form>
             </div>
