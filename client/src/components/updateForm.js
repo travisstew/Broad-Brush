@@ -5,7 +5,7 @@ function UpdateForm(props){
 
   return(
     <div>
-      <form onSubmit={props.submitUpdate}>
+      <form className="update-form" onSubmit={props.submitUpdate}>
         <div className="form-group">
           <label >Name</label>
           <input type="text" name="name" onChange={props.updateChange} value={props.name} className="form-control" aria-describedby="emailHelp"/>
