@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 app.use('/', require('./routes/userRoute'));
-app.use('/api',require('./routes/user2routes'));
+// app.use('/api',require('./routes/user2routes'));
 
 app.listen(PORT,function () { 
   console.log('listening on port ' + PORT);

@@ -13,6 +13,7 @@ class Dashboard extends Component {
       id:null,
       category:'',
       zip:'',
+      profilePic:'',
     }
 
   toggle=()=>{
@@ -47,7 +48,8 @@ class Dashboard extends Component {
  componentDidMount=()=>{
     axios(`http://localhost:5000/dashboard/${this.props.match.params.id}`).then(res=>{
       console.log(res.data);
-            this.setState({name:res.data.name,id:res.data._id,bio:res.data.bio,category: res.data.category})
+            this.setState({name:res.data.name,id:res.data._id,bio:res.data.bio,category: res.data.category,profilePic:res.data.profileImg})
+            console.log(this.state.profilePic); 
     });  
  }
 
@@ -55,11 +57,11 @@ class Dashboard extends Component {
     
       console.log(this.props.match.params.id);
       console.log(this.state.id);
-      
+ 
     return (  
       <div>
         <div>
-          img
+          <img src={this.state.profilePic} alt="profile pic"></img>
         </div>
         
         <div className="card1" style={{width: 18+"rem"}}>
@@ -73,7 +75,7 @@ class Dashboard extends Component {
         </div>
 
         
-        <FilesUploadComponent  />
+        <FilesUploadComponent params={this.props.match.params.id} />
        
         <div>
           {this.state.on && <UpdateForm 
@@ -84,6 +86,7 @@ class Dashboard extends Component {
                               zip={this.state.zip}
                               category={this.state.category}
                               />}
+
           <button type="button" onClick={this.toggle} className="btn btn-primary">Edit Profile</button>
         </div>
 

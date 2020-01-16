@@ -9,7 +9,7 @@ body{
   color: white
 }
 .jumbotron{
-  background-image:url('./img/ladypaint.jpg')  ;
+  background-image:url('./img/ladypaint.jpg') ;
   /* background-repeat: no-repeat; */
   background-size: cover;
   /* object-fit: fill; */
@@ -76,7 +76,6 @@ body{
       margin-left: 2rem;
       border-radius: 99px;
       width: 13rem
-    
 }
 .card{
   width: 18rem;

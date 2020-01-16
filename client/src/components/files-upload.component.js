@@ -12,6 +12,7 @@ export default class FilesUploadComponent extends Component {
         this.state = {
             profileImg: ''
         }
+
     }
 
     onFileChange(e) {
@@ -22,7 +23,7 @@ export default class FilesUploadComponent extends Component {
         e.preventDefault()
         const formData = new FormData()
         formData.append('profileImg', this.state.profileImg)
-        axios.post("http://localhost:5000/api/user-profile", formData, {
+        axios.put(`http://localhost:5000/api/user-profile/${this.props.params}`, formData, {
         }).then(res => {
             console.log(res)
         });
