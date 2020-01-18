@@ -9,6 +9,7 @@ import SignIn from "./pages/signin";
 import Footer from "./components/Footer";
 import Register from "./pages/register";
 import Secret from "./pages/Secret";
+import withAuth from "./components/withAuth"
 
 
 
@@ -24,7 +25,7 @@ class App extends Component {
              
               <Switch>
                   <Route exact path="/" component={Home} />
-                  <Route exact path="/dashboard"  component={Dashboard}></Route>
+                  <Route exact path="/dashboard"  component={withAuth(Dashboard) }></Route>
                   <Route exact path="/signin" component={SignIn}></Route>
                   <Route exact path="/register" component={Register}></Route>
                   <Route exact path="/secret" component={Secret}></Route>

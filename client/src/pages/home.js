@@ -3,7 +3,7 @@ import React from 'react';
 function Home(){
   return (
     <>
-    <div className="jumbotron">
+    <div id="jumbotron" className="jumbotron">
         <div className="float-right">
         <h1 className="display-4">Hello, world!</h1>
         <p>It uses utility classNamees for typography and spacing to space content out within the larger container.</p>

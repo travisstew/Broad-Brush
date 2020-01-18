@@ -118,6 +118,7 @@ router.post('/signin', function(req, res) {
           const token = jwt.sign(payload, process.env.TOKEN_SIGN, {
             expiresIn: '2h'
           });
+         
           res.cookie('token', token, { httpOnly: true })
             .sendStatus(200);
         }
@@ -125,6 +126,11 @@ router.post('/signin', function(req, res) {
     }
   });
 });
+router.post('/logout',withAuth ,(req,res)=>{
+      
+      res.cookie('token', '', { httpOnly: true })
+            .sendStatus(200);
+})
 
 router.get('/checkToken',withAuth, function (req,res) {
   res.sendStatus(200);
