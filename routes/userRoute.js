@@ -9,8 +9,9 @@ const db = require('../model')
 
 
 // const DIR = './public/';
- const DIR = './client/public/img/'
+const DIR = './client/public/img/'
 
+//=====storage====//
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
       cb(null, DIR);
@@ -20,7 +21,7 @@ const storage = multer.diskStorage({
       cb(null, uuidv4() + '-' + fileName)
   }
 });
-
+//======upload=====//
 var upload = multer({
   storage: storage,
   fileFilter: (req, file, cb) => {
@@ -34,8 +35,8 @@ var upload = multer({
 });
 
 //route for profile image 
-router.put('/api/user-profile/:id', upload.single('profileImg'), (req, res, next) => {  
-  const url = req.protocol + '://' + req.get('host')
+router.put('/api/user-profile/:id', upload.single('profileImg') , (req, res, next) => {  
+  // const url = req.protocol + '://' + req.get('host')
   db.User.findByIdAndUpdate(`${req.params.id}`,
       {
         profileImg: '../img/' +  req.file.filename,
@@ -44,7 +45,16 @@ router.put('/api/user-profile/:id', upload.single('profileImg'), (req, res, next
   res.end();
 });
 
- 
+router.put('/api/user-profile/pics/:id',upload.single('artwork'),function(req,res){
+  console.log(req.body);
+  
+    db.User.findByIdAndUpdate(`${req.params.id}`,
+      {
+        $push:{artwork:{pic:'../img/' +  req.file.filename, name: req.body.name}}
+     
+    }).then(function(){ });
+});
+
 
 router.post('/register', (req,res)=>{
   const {name,email,password} = req.body;
@@ -57,9 +67,9 @@ router.post('/register', (req,res)=>{
     });
     newUser.save({}).then(user=>{
       console.log('success user create');
-      
     });
 });
+
 
 router.get('/dashboard/:id',function (req,res) {
         console.log(req.params.id);    
@@ -82,7 +92,8 @@ router.put('/dashboard/:id',function (req,res) {
       res.end()
 });
 
-  router.get('/', function (req,res) {
+
+router.get('/', function (req,res) {
     //======zip code radius finder =======/////////
 
     // axios.default('https://www.zipcodeapi.com/rest/Zz1uX0aolXmtTANYIrWceVkKqPgNUVHjZpadQnSV1sLt4iY55ae0cmsxyUgsfY9G/radius.json/23831/10/mile').then(result=>{
@@ -94,6 +105,6 @@ router.put('/dashboard/:id',function (req,res) {
     //   res.send(result.data)
 
     //});
-    });
+});
 
 module.exports = router;

@@ -65,7 +65,7 @@ body{
 }
 #main{
   min-height: 100vh;
-  height: 100rem;
+  /* height: 100rem; */
 }
 
 #card-img{
@@ -92,4 +92,16 @@ body{
 } */
 .update-form{
   width: 15rem;
+  padding-bottom: 3rem;
+}
+.update-form-wrapper{
+  width: fit-content; 
+  padding-left: 3rem;
+}
+#profile-pic{
+  width: 12rem;
+  height: 15rem;
+  border-radius: 50%;
+  border: coral solid;
+  padding: 3px;
 }

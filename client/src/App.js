@@ -11,6 +11,7 @@ import Register from "./pages/register";
 import Profile from "./pages/Profiles";
 
 
+
 // Check for token to keep user logged in
 
 class App extends Component {

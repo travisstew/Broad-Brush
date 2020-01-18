@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import FilesUploadComponent from "../components/files-upload.component";
 import UpdateForm from '../components/updateForm';
 import axios from 'axios';
+import PhotoComponent from '../components/Photo';
+import ArtworkCards from '../components/ArtwokCards';
 
 
 class Dashboard extends Component {
@@ -14,6 +15,7 @@ class Dashboard extends Component {
       category:'',
       zip:'',
       profilePic:'',
+      artwork:[]
     }
 
   toggle=()=>{
@@ -27,6 +29,7 @@ class Dashboard extends Component {
         [e.target.name]:e.target.value
     });
   }
+
   submitUpdate =(e)=>{
         e.preventDefault();
         const {name,zip,bio,category} = this.state;
@@ -38,30 +41,30 @@ class Dashboard extends Component {
           bio: bio,
           category: category
         }
+
       axios.put(`http://localhost:5000/dashboard/${this.props.match.params.id}`,userdata).then(res=>{
           console.log('got it');
           window.location.reload(true);
       });
   }
   
-
  componentDidMount=()=>{
     axios(`http://localhost:5000/dashboard/${this.props.match.params.id}`).then(res=>{
       console.log(res.data);
-            this.setState({name:res.data.name,id:res.data._id,bio:res.data.bio,category: res.data.category,profilePic:res.data.profileImg})
-            console.log(this.state.profilePic); 
+            this.setState({name:res.data.name,id:res.data._id,bio:res.data.bio,category: res.data.category,profilePic:res.data.profileImg, artwork:res.data.artwork })
+           
     });  
  }
 
   render() { 
-    
-      console.log(this.props.match.params.id);
-      console.log(this.state.id);
- 
+      // console.log(this.props.match.params.id);
+      // console.log(this.state.id);
+      console.log(this.state.artwork);
+      
     return (  
       <div>
         <div>
-          <img src={this.state.profilePic} alt="profile pic"></img>
+          <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
         </div>
         
         <div className="card1" style={{width: 18+"rem"}}>
@@ -74,10 +77,10 @@ class Dashboard extends Component {
           </div>
         </div>
 
-        
-        <FilesUploadComponent params={this.props.match.params.id} />
        
         <div>
+        {/* <FilesUploadComponent params={this.props.match.params.id} /> */}
+
           {this.state.on && <UpdateForm 
                               updateChange={this.updateChange} 
                               submitUpdate={this.submitUpdate} 
@@ -85,13 +88,17 @@ class Dashboard extends Component {
                               bio={this.state.bio}
                               zip={this.state.zip}
                               category={this.state.category}
+                              params={this.props.match.params.id}
                               />}
 
           <button type="button" onClick={this.toggle} className="btn btn-primary">Edit Profile</button>
         </div>
 
+        <PhotoComponent params={this.props.match.params.id}/>
 
-
+        {this.state.artwork.map(art=> <ArtworkCards source={art.pic} /> )
+        }
+        
       </div>
     );
   }

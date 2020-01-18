@@ -19,7 +19,9 @@ const UserSchema = new mongoose.Schema({
   category:{
     type: String
   },
-  pic:{type:String},
+  pic:{
+    type:String
+  },
   artwork:[{name:{type:String},pic:{type:String}}],
 
   profileImg: {
