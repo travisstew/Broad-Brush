@@ -32,34 +32,42 @@ class Dashboard extends Component {
 
   submitUpdate =(e)=>{
         e.preventDefault();
-        const {name,zip,bio,category} = this.state;
-        console.log(name);
-        
-       const userdata ={
-          name: name,
-          zip: zip,
-          bio: bio,
-          category: category
-        }
+        fetch('/dashboard', {
+          method: 'PUT',
+          body: JSON.stringify(this.state),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(res => {
+          if (res.status === 200) {
+            // this.props.history.push('/');
+          } else {
+            const error = new Error(res.error);
+            throw error;
+          }
+        });
 
-      axios.put(`http://localhost:5000/dashboard/${this.props.match.params.id}`,userdata).then(res=>{
-          console.log('got it');
-          window.location.reload(true);
-      });
+      // axios.put(`http://localhost:5000/dashboard`,userdata).then(res=>{
+      //     console.log(res);
+      //     window.location.reload(true);
+      // });
+
+    //   axios.put(`http://localhost:5000/dashboard/${this.props.match.params.id}`,userdata).then(res=>{
+    //     console.log(res);
+    //     window.location.reload(true);
+    // });
   }
   
  componentDidMount=()=>{
-    axios(`http://localhost:5000/dashboard/${this.props.match.params.id}`).then(res=>{
-      console.log(res.data);
-            this.setState({name:res.data.name,id:res.data._id,bio:res.data.bio,category: res.data.category,profilePic:res.data.profileImg, artwork:res.data.artwork })
-           
+    axios(`/dashboard`).then(res=>{
+      console.log(res);
+            this.setState({name:res.data.name,id:res.data._id,bio:res.data.bio,category: res.data.category,profilePic:res.data.profileImg, artwork:res.data.artwork , zip:res.data.zip})           
     });  
  }
 
   render() { 
       // console.log(this.props.match.params.id);
-      // console.log(this.state.id);
-      console.log(this.state.artwork);
       
     return (  
       <div>
@@ -88,13 +96,12 @@ class Dashboard extends Component {
                               bio={this.state.bio}
                               zip={this.state.zip}
                               category={this.state.category}
-                              params={this.props.match.params.id}
                               />}
 
           <button type="button" onClick={this.toggle} className="btn btn-primary">Edit Profile</button>
         </div>
-
-        <PhotoComponent params={this.props.match.params.id}/>
+{/* params={this.props.match.params.id} */}
+        <PhotoComponent />
 
         {this.state.artwork.map(art=> <ArtworkCards source={art.pic} /> )
         }

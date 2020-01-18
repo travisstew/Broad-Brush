@@ -7,7 +7,7 @@ function UpdateForm(props){
   return(
 
     <div className="update-form-wrapper">
-    <FilesUploadComponent  params={props.params}/>
+    <FilesUploadComponent  />
       <form className="update-form" onSubmit={props.submitUpdate}>
         <div className="form-group">
           <label >Name</label>
@@ -27,7 +27,7 @@ function UpdateForm(props){
         </div>
         <div className="form-group">
           <label >Category</label>
-          <input type="text" name="category" onChange={props.updateChange} value={props.category}  className="form-control" aria-describedby="emailHelp"/>
+          <input type="text" name="category" onChange={props.updateChange}   className="form-control" aria-describedby="emailHelp"/>
           <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div className="form-group">

@@ -1,13 +1,16 @@
 const express =  require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+require('dotenv').config();
+const cookieParser = require('cookie-parser');
+
 
 const app = express();
 
 const PORT = process.env.PORT || 5000;
 
 app.use(express.static('public'));
-
+app.use(cookieParser());
 //mongoose config 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/broadbrush';
 
@@ -36,6 +39,7 @@ app.listen(PORT,function () {
       next(new Error('Something went wrong'));
   });
 });
+
 
 app.use(function (err, req, res, next) {
   console.error(err.message);

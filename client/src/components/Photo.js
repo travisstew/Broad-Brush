@@ -27,13 +27,27 @@ export default class PhotoComponent extends Component {
         const formData = new FormData()
         formData.append('artwork', this.state.artwork)
         formData.append('name', this.state.name)
-        console.log(this.state.name);
         
-        axios.put(`http://localhost:5000/api/user-profile/pics/${this.props.params}`, formData, {
-        }).then(res => {
-            console.log(res)
-        });
-        this.setState({artwork:''});
+        fetch('/api/user-profile/pics', {
+            method: 'PUT',
+            body:  formData,
+          })
+          .then(res => {
+            if (res.status === 200) {
+              this.props.history.push('/');
+            } else {
+              const error = new Error(res.error);
+              throw error;
+            }
+          });
+        
+        
+        
+        // axios.put(`http://localhost:5000/api/user-profile/pics/${this.props.params}`, formData, {
+        // }).then(res => {
+        //     console.log(res)
+        // });
+        // this.setState({artwork:''});
     }
 
     render() {
@@ -41,9 +55,9 @@ export default class PhotoComponent extends Component {
             <div className="container">
                 <div className="row">
                     <form onSubmit={this.onSubmit}>
-                    <div class="form-group">
+                    <div className="form-group">
                       <label>Image Name</label>
-                      <input type="text" name="name" onChange={this.onImgName} value={this.state.name} class="form-control"  />
+                      <input type="text" name="name" onChange={this.onImgName} value={this.state.name} className="form-control"  />
                     </div>
                         <div className="form-group">
                             <input type="file" onChange={this.onFileChange} />

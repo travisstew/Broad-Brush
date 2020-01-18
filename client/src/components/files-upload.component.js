@@ -12,7 +12,6 @@ export default class FilesUploadComponent extends Component {
         this.state = {
             profileImg: ''
         }
-
     }
 
     onFileChange(e) {
@@ -23,11 +22,19 @@ export default class FilesUploadComponent extends Component {
         e.preventDefault()
         const formData = new FormData()
         formData.append('profileImg', this.state.profileImg)
-        axios.put(`http://localhost:5000/api/user-profile/${this.props.params}`, formData, {
-        }).then(res => {
-            console.log(res)
-        });
-        this.setState({profileImg:''});
+        
+        fetch('/api/user-profile', {
+            method: 'PUT',
+            body:  formData,
+          })
+          .then(res => {
+            if (res.status === 200) {
+              this.props.history.push('/');
+            } else {
+              const error = new Error(res.error);
+              throw error;
+            }
+          });
     }
 
     render() {

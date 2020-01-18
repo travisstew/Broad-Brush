@@ -8,7 +8,7 @@ import Dashboard from "./pages/dashboard";
 import SignIn from "./pages/signin";
 import Footer from "./components/Footer";
 import Register from "./pages/register";
-import Profile from "./pages/Profiles";
+import Secret from "./pages/Secret";
 
 
 
@@ -24,10 +24,10 @@ class App extends Component {
              
               <Switch>
                   <Route exact path="/" component={Home} />
-                  <Route exact path="/dashboard/:id"  component={Dashboard}></Route>
+                  <Route exact path="/dashboard"  component={Dashboard}></Route>
                   <Route exact path="/signin" component={SignIn}></Route>
                   <Route exact path="/register" component={Register}></Route>
-                  <Route exact path="/profile/:profileId" component={Profile}></Route>
+                  <Route exact path="/secret" component={Secret}></Route>
                   <Route component={NotFound}></Route>
               </Switch>
 
