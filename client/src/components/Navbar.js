@@ -22,7 +22,7 @@ function Navbar(){
         </li>
        
         <li className="nav-item">
-          <a className="nav-link" href="/dashboard" >Profile</a>
+           <Link to="/dashboard">Profile</Link>
         </li>
         <li className="nav-item">
           <Logout /> 
