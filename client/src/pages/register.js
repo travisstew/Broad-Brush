@@ -30,7 +30,7 @@ class Register extends Component {
 
     Axios.post('/register', {name:name,password:password,email:email}).then(res=>{
       console.log(res);
-      this.props.history.push('signin');
+      this.props.history.push('/signin');
     }) 
   } 
   render() { 
