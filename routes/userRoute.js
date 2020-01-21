@@ -80,7 +80,8 @@ router.post('/register', (req,res)=>{
       if(err) {
         res.status(500).send('Error registering user, please try again.')
       }else{
-        res.status(200).send('Welcome to Broad Brush')
+        res.status(200).send('Welcome to Broad Brush');
+        res.end();
       }
       });
 

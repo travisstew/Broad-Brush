@@ -48,15 +48,6 @@ class Dashboard extends Component {
           }
         });
 
-      // axios.put(`http://localhost:5000/dashboard`,userdata).then(res=>{
-      //     console.log(res);
-      //     window.location.reload(true);
-      // });
-
-    //   axios.put(`http://localhost:5000/dashboard/${this.props.match.params.id}`,userdata).then(res=>{
-    //     console.log(res);
-    //     window.location.reload(true);
-    // });
   }
   
  componentDidMount=()=>{
@@ -67,27 +58,27 @@ class Dashboard extends Component {
  }
 
   render() { 
-      // console.log(this.props.match.params.id);
       
     return (  
       <div>
-        <div>
+      
+        <div className="profile-header">
           <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
+          <h5 className="card-title">{this.state.name}</h5>
         </div>
         
         <div className="card1" style={{width: 18+"rem"}}>
           <div className="card-body">
-            <h5 className="card-title">{this.state.name}</h5>
+            
             <h6 className="card-subtitle mb-2 text-muted">{this.state.category}</h6>
             <p className="card-text">{this.state.bio}</p>
-            <a href="/" className="card-link">Card link</a>
-            <a href="/" className="card-link">Another link</a>
+          
           </div>
         </div>
 
        
         <div>
-        {/* <FilesUploadComponent params={this.props.match.params.id} /> */}
+       
 
           {this.state.on && <UpdateForm 
                               updateChange={this.updateChange} 
@@ -100,13 +91,30 @@ class Dashboard extends Component {
 
           <button type="button" onClick={this.toggle} className="btn btn-primary">Edit Profile</button>
         </div>
-{/* params={this.props.match.params.id} */}
+
         <PhotoComponent />
 
         {this.state.artwork.map(art=> <ArtworkCards source={art.pic} /> )
         }
-        
-      </div>
+       
+  {/* <div className="container-fluid">     
+  <div class="row">
+    <div class="col-3">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+    </div>
+    <div class="col-9">
+      2 column
+    </div> 
+  </div>
+
+ </div>  */}
+  
+ </div>
     );
   }
 }

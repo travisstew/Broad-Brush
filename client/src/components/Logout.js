@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter} from 'react-router-dom';
+
 
 class Logout extends Component {
   state = {
@@ -8,9 +10,14 @@ class Logout extends Component {
     onLogout =()=>{
       fetch('/logout',{
         method: 'POST',
+        body: '',
+        headers: {
+      'Content-Type': 'application/json'
+    }
       }).then(res=>{
-          console.log(res); 
-          window.location.href ="/";
+          console.log(res);
+          this.props.history.push('/');
+          
       });
 
     }
@@ -25,4 +32,4 @@ class Logout extends Component {
   }
 }
  
-export default Logout;
+export default withRouter(Logout) ;

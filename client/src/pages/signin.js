@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Logo from '../components/logo';
+import { Link } from 'react-router-dom';
 // import axios from "axios";
 
 class SignIn extends Component {
@@ -25,7 +27,8 @@ class SignIn extends Component {
   })
   .then(res => {
     if (res.status === 200) {
-      window.location.href='/dashboard';
+      this.props.history.push('/dashboard');
+      // window.location.href='/dashboard';
     } else {
       const error = new Error(res.error);
       throw error;
@@ -40,8 +43,10 @@ class SignIn extends Component {
 
   render() { 
     return ( 
-    <div>
-      <form id="form" onSubmit={this.OnSignIn}>
+    <div id="signin-form" >
+      <Logo />
+      <h3>Sign In</h3>
+      <form onSubmit={this.OnSignIn}>
           <div className="form-group">
             <label >Email address</label>
             <input  type="email" name="email" onChange={this.onFormChange} value={this.state.email} className="form-control" />
@@ -54,6 +59,7 @@ class SignIn extends Component {
           
           <button type="submit" className="btn btn-primary">Submit</button>
       </form>
+      <small id="emailHelp" className="form-text text-muted">Not on Broad Brush yet? <Link to="/register">Register here</Link></small>
     </div>
     );
   }

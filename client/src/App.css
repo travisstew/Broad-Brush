@@ -1,13 +1,22 @@
+
 body{
   background:white;
 }
 #navbar{
-  background-color: #70C1B3;
+  /* 70C1B3 */
+  /* background-color: rgb(255, 107, 107); */
+  /* background-color: #FF5964; */
+  /* background-color: #FAD46B ; */
+  background-color: #70c1b3;
   color: white;
+  /* box-shadow: inset 0 0 5px #000000; */
 }
+
 #navbar a{
   color: white
+  /* color: black; */
 }
+
 #jumbotron{
   background-image:url('./img/ladypaint.jpg') ;
   /* background-repeat: no-repeat; */
@@ -22,12 +31,17 @@ body{
 /* linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), */
 
 #signin-btn{
-  border: solid #70C1AA 2.5px;
-  background: white;
+  /* border: solid #70C1AA 2.5px; */
+  border: solid #F84545 2.5px;
+  /* background: white; */
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-
+#signin-form{
+  width: 15rem;
+  margin: auto;
+  margin-top: 3rem;
+}
 #homepage-logo{
   padding-bottom: 0.8rem;
   font-size: 1.6rem;
@@ -48,7 +62,7 @@ body{
 .form{
   width: 15rem;
   margin: auto;
-  margin-top: 10rem;
+  margin-top: 5rem;
  
 }
 #zip-input{
@@ -56,16 +70,19 @@ body{
 }
 #zip-button{
   padding: .1rem;
-    background: #F25F5C;
+    /* background: #F25F5C; */
+    background: #F84545;
 }
 .footer{
-  background: #70C1B3;
+  /* background: #38618C; */
+  background-color: #70c1b3;
   padding: 5rem;
-  
+  /* background: #FAD46B; */
+   /* background: rgb(255, 107, 107); */
 }
 #main{
   min-height: 100vh;
-  /* height: 100rem; */
+ 
 }
 
 #card-img{
@@ -99,9 +116,20 @@ body{
   padding-left: 3rem;
 }
 #profile-pic{
-  width: 12rem;
-  height: 15rem;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
   border: coral solid;
   padding: 3px;
+}
+/* ==== home page ==== */
+.logo-home{
+  width:7rem;
+  height: auto;
+}
+
+/* ======= dashboard ====== */
+
+.profile-header{
+  text-align: center;
 }

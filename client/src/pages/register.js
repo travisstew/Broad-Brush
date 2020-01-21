@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
+import Logo from '../components/logo';
 
 class Register extends Component {
   constructor(props) {
@@ -28,13 +30,14 @@ class Register extends Component {
 
     Axios.post('/register', {name:name,password:password,email:email}).then(res=>{
       console.log(res);
-      
+      this.props.history.push('signin');
     }) 
   } 
   render() { 
     return (
-            <div>
-              <form className="form" onSubmit={this.submit}>
+            <div className="form">
+              <Logo />
+              <form  onSubmit={this.submit}>
                 <div class="form-group">
                     <label >Email</label>
                     <input type="email" name="email" class="form-control" onChange={this.changehandler} value={this.state.email}  />
@@ -49,6 +52,7 @@ class Register extends Component {
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
               </form>
+              <small id="emailHelp" className="form-text text-muted">Already a user? <Link to="/signin">Sign In</Link></small>
             </div>
            );
   }

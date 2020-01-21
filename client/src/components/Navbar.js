@@ -1,11 +1,15 @@
 import React from 'react';
 import Logout from './Logout';
+// import logo from '../img/newlogo1.png'
 // import {Link} from 'react-router-dom';
 
 function Navbar(){
   return (
     <nav  id="navbar" className="navbar navbar-expand-lg sticky-top">
-    <a className="navbar-brand" href="/">Navbar</a>
+    <a className="navbar-brand" href="/">
+    {/* <img src={logo}  class="d-inline-block align-top" alt=""/> */}
+      Broad Brush
+    </a>
     {/* <Link to="/">Navbar</Link> */}
 
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,8 +20,9 @@ function Navbar(){
         <li className="nav-item active">
           <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
         </li>
+       
         <li className="nav-item">
-          <a className="nav-link" href="/register" >Register</a>
+          <a className="nav-link" href="/dashboard" >Profile</a>
         </li>
         <li className="nav-item">
           <Logout /> 
