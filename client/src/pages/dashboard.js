@@ -62,7 +62,7 @@ class Dashboard extends Component {
     return (  
       <div>
       
-        <div className="profile-header">
+        {/* <div className="profile-header">
           <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
           <h5 className="card-title">{this.state.name}</h5>
         </div>
@@ -95,25 +95,36 @@ class Dashboard extends Component {
         <PhotoComponent />
 
         {this.state.artwork.map(art=> <ArtworkCards source={art.pic} /> )
-        }
+        } */}
        
   {/* <div className="container-fluid">     
-  <div class="row">
-    <div class="col-3">
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-    </div>
-    <div class="col-9">
+      <div className="row">
+        <div className="col-3 first-col">
+            <div className="profile-header">
+              <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
+              <h5 className="card-title">{this.state.name}</h5>
+              
+                <button className="btn btn-secondary btn-lg btn-block">Edit Profile</button>
+                <button className="btn btn-secondary btn-lg btn-block">Edit Profile</button>
+                <button className="btn btn-secondary btn-lg btn-block">Edit Profile</button>
+            
+            </div>
+        </div>
+    <div className="col-9">
       2 column
     </div> 
   </div>
 
  </div>  */}
   
+ <div class="sidenav">
+ <button className="btn btn-secondary btn-lg btn-block">Edit Profile</button>
+ <button className="btn btn-secondary btn-lg btn-block">Local Artist</button>
+ <button className="btn btn-secondary btn-lg btn-block">Edi</button>
+ <button className="btn btn-secondary btn-lg btn-block">Edit Profile</button>
+</div>
+
+
  </div>
     );
   }

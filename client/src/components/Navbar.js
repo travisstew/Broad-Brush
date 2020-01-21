@@ -18,11 +18,11 @@ function Navbar(){
     <div className="collapse navbar-collapse d-flex flex-row-reverse " id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item active">
-          <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+          <Link to="/" >Home</Link>
         </li>
        
         <li className="nav-item">
-           <Link to="/dashboard">Profile</Link>
+           <Link to="/dashboard"> Profile</Link>
         </li>
         <li className="nav-item">
           <Logout /> 
