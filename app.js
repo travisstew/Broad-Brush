@@ -10,7 +10,7 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
 app.use(cookieParser());
 //mongoose config 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/broadbrush';
