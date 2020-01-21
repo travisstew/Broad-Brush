@@ -1,7 +1,7 @@
 import React from 'react';
 import Logout from './Logout';
 // import logo from '../img/newlogo1.png'
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 function Navbar(){
   return (
