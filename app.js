@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 
 const app = express();
@@ -26,6 +27,14 @@ app.use(express.json());
 
 app.use('/', require('./routes/userRoute'));
 // app.use('/api',require('./routes/user2routes'));
+
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static('client/build'));
+
+    app.get('*',(req,res)=>{
+      res.sendFile(path.join(__dirname, 'client','build','index.html')); //relative path
+    })
+}
 
 app.listen(PORT,function () { 
   console.log('listening on port ' + PORT);
