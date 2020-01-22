@@ -62,7 +62,7 @@ class Dashboard extends Component {
     return (  
       <div>
       
-        {/* <div className="profile-header">
+        <div className="profile-header">
           <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
           <h5 className="card-title">{this.state.name}</h5>
         </div>
@@ -95,9 +95,9 @@ class Dashboard extends Component {
         <PhotoComponent />
 
         {this.state.artwork.map(art=> <ArtworkCards source={art.pic} /> )
-        } */}
+        }
        
-  <div className="container-fluid">     
+  {/* <div className="container-fluid">     
       <div className="row">
         <div className="col-4 first-col">
             <div className="profile-header">
@@ -113,7 +113,7 @@ class Dashboard extends Component {
     </div> 
   </div>
 
- </div> 
+ </div>  */}
   
  </div>
     );
