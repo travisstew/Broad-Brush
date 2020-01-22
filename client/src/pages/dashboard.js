@@ -97,34 +97,24 @@ class Dashboard extends Component {
         {this.state.artwork.map(art=> <ArtworkCards source={art.pic} /> )
         } */}
        
-  {/* <div className="container-fluid">     
+  <div className="container-fluid">     
       <div className="row">
-        <div className="col-3 first-col">
+        <div className="col-4 first-col">
             <div className="profile-header">
               <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
               <h5 className="card-title">{this.state.name}</h5>
-              
-                <button className="btn btn-secondary btn-lg btn-block">Edit Profile</button>
-                <button className="btn btn-secondary btn-lg btn-block">Edit Profile</button>
-                <button className="btn btn-secondary btn-lg btn-block">Edit Profile</button>
-            
+              <p className="card-text">{this.state.bio}</p>
+
+    
             </div>
         </div>
-    <div className="col-9">
+    <div className="col-8">
       2 column
     </div> 
   </div>
 
- </div>  */}
+ </div> 
   
- <div class="sidenav">
- <button className="btn btn-secondary btn-lg btn-block">Edit Profile</button>
- <button className="btn btn-secondary btn-lg btn-block">Local Artist</button>
- <button className="btn btn-secondary btn-lg btn-block">Edi</button>
- <button className="btn btn-secondary btn-lg btn-block">Edit Profile</button>
-</div>
-
-
  </div>
     );
   }

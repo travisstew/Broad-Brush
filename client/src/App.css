@@ -140,14 +140,3 @@ body{
   list-style: none;
 } */
 
-.sidenav{
-  height: 100%;
-  width: 160px;
-  position: fixed;
-  z-index: 1;
-  top: 100;
-  left: 0;
-  background-color:#f8f9fa;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
