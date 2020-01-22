@@ -29,8 +29,8 @@ export default class FilesUploadComponent extends Component {
           })
           .then(res => {
             if (res.status === 200) {
-            //   this.props.history.push('/');
-              window.location.reload(true);
+              this.props.history.push('/dashboard');
+             
             } else {
               const error = new Error(res.error);
               throw error;
