@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { withRouter} from 'react-router-dom';
 
-
-export default class PhotoComponent extends Component {
+ class PhotoComponent extends Component {
 
     constructor(props) {
         super(props);
@@ -28,7 +28,7 @@ export default class PhotoComponent extends Component {
         formData.append('artwork', this.state.artwork)
         formData.append('name', this.state.name)
         
-        fetch('/api/user-profile/pics', {
+        fetch('/api/user-profile/artwork', {
             method: 'PUT',
             body:  formData,
           })
@@ -42,19 +42,13 @@ export default class PhotoComponent extends Component {
           });
         
         
-        
-        // axios.put(`http://localhost:5000/api/user-profile/pics/${this.props.params}`, formData, {
-        // }).then(res => {
-        //     console.log(res)
-        // });
-        // this.setState({artwork:''});
     }
 
     render() {
         return (
             <div className="container">
                 <div className="row">
-                    <form onSubmit={this.onSubmit}>
+                    <form onSubmit={this.onSubmit} encType="multipart/form-data">
                     <div className="form-group">
                       <label>Image Name</label>
                       <input type="text" name="name" onChange={this.onImgName} value={this.state.name} className="form-control"  />
@@ -71,3 +65,5 @@ export default class PhotoComponent extends Component {
         )
     }
 }
+
+export default withRouter(PhotoComponent);

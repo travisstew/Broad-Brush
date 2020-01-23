@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
+import { withRouter} from 'react-router-dom';
 
-
-export default class Imageupload extends Component {
+ class Imageupload extends Component {
 
     constructor(props) {
         super(props);
 
         this.onFileChange = this.onFileChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-
         this.state = {
             profileImg: ''
         }
@@ -55,3 +54,5 @@ export default class Imageupload extends Component {
         )
     }
 }
+
+export default withRouter(Imageupload);

@@ -36,32 +36,12 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_APISECRET
   });
 
-  const storage = cloudinaryStorage({
-  cloudinary: cloudinary,
-  folder: "profile",
-  allowedFormats: ["jpg", "png"],
-  transformation: [{ width: 500, height: 500, crop: "limit" }]
-  });
-  const parser = multer({ storage: storage });
-  const withAuth = require('./config/middleware');
-  const db = require('./model');
+ 
 
- require('dotenv').config();
-
-  app.put('/api/images',withAuth, parser.single("profileImg"), (req, res) => {
-    console.log(req.file) // to see what is returned to you
-
-    db.User.findOneAndUpdate({email:req.email},
-      {
-        profileImg: req.file.url,
-      }).then(function(){ });
-    
-  res.end();
-
-  });
+require('dotenv').config();
 
 
-
+app.use('/',require('./routes/api'));
 app.use('/', require('./routes/userRoute'));
 // app.use('/api',require('./routes/user2routes'));
 

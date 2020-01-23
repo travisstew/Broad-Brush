@@ -42,8 +42,6 @@ router.put('/api/user-profile',withAuth,upload.single('profileImg') , (req, res,
   // const url = req.protocol + '://' + req.get('host')
   console.log(req.email);
   console.log(req.file.filename);
-  
-  
   db.User.findOneAndUpdate({email:req.email},
       {
         profileImg: '../img/' +  req.file.filename,

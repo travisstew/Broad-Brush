@@ -119,7 +119,7 @@ class Dashboard extends Component {
 
  <Imageupload />
  <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
-  
+ <PhotoComponent /> 
  </div>
     );
   }
