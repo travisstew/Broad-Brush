@@ -5,6 +5,10 @@ require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
+const multer = require('multer');
+const cloudinary = require('cloudinary');
+const cloudinaryStorage = require('multer-storage-cloudinary');
+
 
 const app = express();
 
@@ -24,6 +28,39 @@ app.use(cors());
 //body parser
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
+
+//image upload to cloud
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUDNAME,
+  api_key: process.env.CLOUDINARY_APIKEY,
+  api_secret: process.env.CLOUDINARY_APISECRET
+  });
+
+  const storage = cloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: "profile",
+  allowedFormats: ["jpg", "png"],
+  transformation: [{ width: 500, height: 500, crop: "limit" }]
+  });
+  const parser = multer({ storage: storage });
+  const withAuth = require('./config/middleware');
+  const db = require('./model');
+
+ require('dotenv').config();
+
+  app.put('/api/images',withAuth, parser.single("profileImg"), (req, res) => {
+    console.log(req.file) // to see what is returned to you
+
+    db.User.findOneAndUpdate({email:req.email},
+      {
+        profileImg: req.file.url,
+      }).then(function(){ });
+    
+  res.end();
+
+  });
+
+
 
 app.use('/', require('./routes/userRoute'));
 // app.use('/api',require('./routes/user2routes'));

@@ -3,6 +3,7 @@ import UpdateForm from '../components/updateForm';
 import axios from 'axios';
 import PhotoComponent from '../components/Photo';
 import ArtworkCards from '../components/ArtwokCards';
+import Imageupload from '../components/Imageupload';
 
 
 class Dashboard extends Component {
@@ -61,7 +62,7 @@ class Dashboard extends Component {
       
     return (  
       <div>
-      
+{/*       
         <div className="profile-header">
           <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
           <h5 className="card-title">{this.state.name}</h5>
@@ -95,7 +96,7 @@ class Dashboard extends Component {
         <PhotoComponent />
 
         {this.state.artwork.map(art=> <ArtworkCards source={art.pic} /> )
-        }
+        } */}
        
   {/* <div className="container-fluid">     
       <div className="row">
@@ -114,6 +115,10 @@ class Dashboard extends Component {
   </div>
 
  </div>  */}
+
+
+ <Imageupload />
+ <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
   
  </div>
     );

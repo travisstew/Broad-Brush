@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
+// const axios = require('axios');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const uuidv4 = require('uuid/v4');
