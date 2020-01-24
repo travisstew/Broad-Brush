@@ -19,7 +19,7 @@ class App extends Component {
     return (
           <Router>
             <div>
-              <Navbar/>
+          
               <div id='main'>
              
               <Switch>

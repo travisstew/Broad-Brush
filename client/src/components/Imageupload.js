@@ -28,8 +28,8 @@ import { withRouter} from 'react-router-dom';
           })
           .then(res => {
             if (res.status === 200) {
-              this.props.history.push('/dashboard');
-             
+            //   this.props.history.push('/dashboard');
+                window.location.reload(true)
             } else {
               const error = new Error(res.error);
               throw error;

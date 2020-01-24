@@ -4,6 +4,7 @@ import axios from 'axios';
 import PhotoComponent from '../components/Photo';
 import ArtworkCards from '../components/ArtwokCards';
 import Imageupload from '../components/Imageupload';
+import Navbar from '../components/Navbar';
 
 
 class Dashboard extends Component {
@@ -62,6 +63,7 @@ class Dashboard extends Component {
       
     return (  
       <div>
+          <Navbar css="navbar" />
 {/*       
         <div className="profile-header">
           <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>

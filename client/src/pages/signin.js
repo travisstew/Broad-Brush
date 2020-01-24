@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Logo from '../components/logo';
 import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 // import axios from "axios";
 
 class SignIn extends Component {
@@ -43,23 +44,27 @@ class SignIn extends Component {
 
   render() { 
     return ( 
-    <div id="signin-form" >
-      <Logo />
-      <h3>Sign In</h3>
-      <form onSubmit={this.OnSignIn}>
-          <div className="form-group">
-            <label >Email address</label>
-            <input  type="email" name="email" onChange={this.onFormChange} value={this.state.email} className="form-control" />
-            <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-          <div className="form-group">
-            <label >Password</label>
-            <input type="password" className="form-control" name="password" value={this.state.password} onChange={this.onFormChange}/>
-          </div>
-          
-          <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
-      <small id="emailHelp" className="form-text text-muted">Not on Broad Brush yet? <Link to="/register">Register here</Link></small>
+     <div>
+          <Navbar css="navbar" />
+        <div id="signin-form" >
+          <Logo />
+          <h3>Sign In</h3>
+          <form onSubmit={this.OnSignIn}>
+              <div className="form-group">
+                <label >Email address</label>
+                <input  type="email" name="email" onChange={this.onFormChange} value={this.state.email} className="form-control" />
+                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div className="form-group">
+                <label >Password</label>
+                <input type="password" className="form-control" name="password" value={this.state.password} onChange={this.onFormChange}/>
+              </div>
+              
+              <button type="submit" className="btn btn-primary">Submit</button>
+          </form>
+          <small id="emailHelp" className="form-text text-muted">Not on Broad Brush yet? <Link to="/register">Register here</Link></small>
+        </div>
+    
     </div>
     );
   }

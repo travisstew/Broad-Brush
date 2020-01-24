@@ -1,18 +1,32 @@
 import React from 'react';
 import Footer from '../components/Footer'
 import logo from '../img/broadbrush.png'
+import Navbar from '../components/Navbar';
+import backgrounding from '../img/ladypaint.jpg'
 function Home(){
   return (
     <>
-    <div id="jumbotron" className="jumbotron">
+        {/* 
+        <div id="jumbotron" className="jumbotron">
 
-        <div className="float-right">
+            <div className="float-right">
+            <h1 className="display-4">Hello, world!</h1>
+            <p>It uses utility classNamees for typography and spacing to space content out within the larger container.</p>
+            <a  id="signin-btn" className="btn  btn-lg" href="/signin" role="button">Sign In</a> 
+            </div>
+        </div> 
+        */}
+  
+    <div className="background">
+      <div className="background-color">
+      </div>
+      <Navbar css="home-nav" /> 
+   </div> 
+    <div className="home-heading-title">
         <h1 className="display-4">Hello, world!</h1>
-        <p>It uses utility classNamees for typography and spacing to space content out within the larger container.</p>
-         <a  id="signin-btn" className="btn  btn-lg" href="/signin" role="button">Sign In</a> 
-         </div>
+        <p className="home-heading-p">It uses utility classNamees for typography and spacing to space content out within the larger container.</p>
+        <a  id="signin-btn" className="btn  btn-lg" href="/signin" role="button">Sign In</a> 
     </div>
-
     <div className="container">
         <div className="homepage-gallery-text">
             {/* <h4 id="homepage-logo">Logo</h4> */}

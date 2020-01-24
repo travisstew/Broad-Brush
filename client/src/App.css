@@ -3,18 +3,16 @@ body{
   background:white;
 }
 #navbar{
-  /* 70C1B3 */
-  /* background-color: rgb(255, 107, 107); */
-  /* background-color: #FF5964; */
-  /* background-color: #FAD46B ; */
+
   background-color: #70c1b3;
   color: white;
+  /* position: absolute;
+  top: 0; */
+  width: 100%;
   /* box-shadow: inset 0 0 5px #000000; */
 }
-
 #navbar a{
   color: white
-  /* color: black; */
 }
 
 #jumbotron{
@@ -30,13 +28,7 @@ body{
 
 /* linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), */
 
-#signin-btn{
-  /* border: solid #70C1AA 2.5px; */
-  border: solid #F84545 2.5px;
-  /* background: white; */
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
+
 #signin-form{
   width: 15rem;
   margin: auto;
@@ -123,11 +115,62 @@ body{
   padding: 3px;
 }
 /* ==== home page ==== */
+#signin-btn{
+  /* border: solid #70C1AA 2.5px; */
+  border: solid #F84545 2px;
+  /* background: white; */
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  color:white;
+  width: 7em;
+  -webkit-border-radius:4em;
+  border-radius: 4em;
+}
 .logo-home{
   width:7rem;
   height: auto;
 }
+.background{
+  height: 32rem;
+  background-image: url('./img/ladypaint.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  /* background-position-y: inherit; */
+  background-position-y: -2rem;
+  transform: scaleX(-1);
+ 
+}
+.background-color{
+  background: black;
+  height: 100%;
+  width: 100%;
+  opacity: 56%;
+}
+#home-nav{
 
+ transform: scaleX(-1);
+ color: white;
+ position: absolute;
+ top: 0;
+ width: 100%;
+ background: none;
+  /* box-shadow: inset 0 0 5px #000000; */
+}
+
+#home-nav a{
+  color: white
+  /* color: black; */
+}
+.home-heading-title{
+  position: absolute;
+  top:10rem;
+  right:5rem;
+  color:white;
+}
+.home-heading-p{
+  width: 33rem;
+}
 /* ======= dashboard ====== */
 
 /* .profile-header{

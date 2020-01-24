@@ -3,9 +3,9 @@ import Logout from './Logout';
 // import logo from '../img/newlogo1.png'
 import {Link} from 'react-router-dom';
 
-function Navbar(){
+function Navbar(props){
   return (
-    <nav  id="navbar" className="navbar navbar-expand-lg sticky-top">
+    <nav id={props.css} className="navbar navbar-expand-lg sticky-top">
     <a className="navbar-brand" href="/">
     {/* <img src={logo}  class="d-inline-block align-top" alt=""/> */}
       Broad Brush

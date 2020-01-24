@@ -1,9 +1,14 @@
 import React from 'react';
+import Navbar from '../components/Navbar';
 
 function NotFound(){
   return (
+
     <div>
-      <h3>Page not Found</h3>
+      <Navbar css="navbar" />
+
+     
+      <h1 style={{"paddingTop":5+"rem"}}>Page not Found</h1>
      </div>
   )
 }

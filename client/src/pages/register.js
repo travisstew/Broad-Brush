@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import Logo from '../components/logo';
+import Navbar from '../components/Navbar';
 
 class Register extends Component {
   constructor(props) {
@@ -35,6 +36,8 @@ class Register extends Component {
   } 
   render() { 
     return (
+          <div>
+            <Navbar css="navbar" />
             <div className="form">
               <Logo />
               <form  onSubmit={this.submit}>
@@ -54,6 +57,8 @@ class Register extends Component {
               </form>
               <small id="emailHelp" className="form-text text-muted">Already a user? <Link to="/signin">Sign In</Link></small>
             </div>
+        </div>
+
            );
   }
 }
