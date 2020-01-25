@@ -86,16 +86,17 @@ body{
       border-radius: 99px;
       width: 13rem
 }
-.card{
+
+/* .card{
   width: 18rem;
   margin-top: 10rem;
   padding-top: 4rem;
   padding-bottom: 1.5rem;
-  /* background-color: #F8F8F8; */
+
   box-shadow: 3px 5px 9px 3px lightgrey;
   width: 16rem;
   height: 28rem;
-}
+} */
 /* .card:hover {
   transform: scale(1.3); 
 } */
@@ -107,13 +108,7 @@ body{
   width: fit-content; 
   padding-left: 3rem;
 }
-#profile-pic{
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
-  border: coral solid;
-  padding: 3px;
-}
+
 /* ==== home page ==== */
 #navbar-toggler-border {
    border-color: #F84545;
@@ -184,13 +179,29 @@ body{
 
 .dash-side-bar{
   padding: 1em;
-  
   color: grey;
 }
-
 .sidebar{
   height: 100vh;
 }
 #sidebar{
   position: fixed;
+}
+.profile-div{
+  padding-top: 3em;
+  text-align: center;
+}
+.profile-div h5{
+  font-size: 2.2em;
+  padding-top: 0.5em;
+}
+.profile-div p{
+  font-size: larger;
+}
+#profile-pic{
+  width: 13rem;
+  height: 14rem;
+  border-radius: 50%;
+  border: coral solid;
+  padding: 3px;
 }

@@ -6,11 +6,14 @@ import ArtworkCards from '../components/ArtwokCards';
 import Imageupload from '../components/Imageupload';
 import Navbar from '../components/Navbar';
 import FilesUploadComponent from "../components/files-upload.component";
+import { Link } from 'react-router-dom';
+import Logout from '../components/Logout';
+import Profile from '../components/Profile';
 
 class Dashboard extends Component {
 
     state = { 
-      on:false,
+      on:true,
       name:'',
       bio:'',
       id:null,
@@ -19,19 +22,49 @@ class Dashboard extends Component {
       profilePic:'',
       artwork:[],
       profileTab: false,
+      dash_heading:'',
     }
  //===toggle buttons ===//
-  toggle=()=>{
-    this.setState({
-      on: !this.state.on
-    });
-  }
-  toggleProfile=()=>{
-    this.setState({
-      profileTab:!this.state.profileTab
-    })
-  }
+      
 
+  toggle=(e)=>{      
+      this.setState({
+          on:true,
+          profileTab:true,
+      });
+
+
+      switch (e.currentTarget.dataset.btn) {
+        case "Edit":
+            this.setState({
+                on:!this.state.on,
+                dash_heading:"Edit"
+              });
+              if(!this.state.on){
+                this.setState({
+                  dash_heading:""
+                });
+              }  
+          break;   
+        case "Profile":
+            this.setState({
+              profileTab:!this.state.profileTab,
+              dash_heading:"Profile"
+            });
+            if(!this.state.profileTab){
+              this.setState({
+                dash_heading:""
+              });
+            } 
+          break;
+
+
+        default:
+          break;
+      }
+
+  }
+//==== toggle buttons end === //
   updateChange = (e)=>{
     this.setState({
         [e.target.name]:e.target.value
@@ -66,6 +99,7 @@ class Dashboard extends Component {
  }
 
   render() { 
+     
       
     return (  
       <div>
@@ -149,7 +183,7 @@ class Dashboard extends Component {
       {/* <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"/> */}
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
+         <Link to="signout" ><Logout /> </Link>
         </li>
       </ul>
  </nav>
@@ -160,10 +194,10 @@ class Dashboard extends Component {
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item dash-side-bar">
-                <h6 onClick={this.toggle}>Dashboard</h6>
+                <h6 onClick={this.toggle} data-btn="Profile">Profile</h6>
               </li>
               <li class="nav-item dash-side-bar">
-                <h6>Dashboard</h6>
+                <h6 onClick={this.toggle} data-btn="Edit">Edit</h6>
               </li>
               <li class="nav-item dash-side-bar">
                 <h6>Dashboard</h6>
@@ -179,7 +213,7 @@ class Dashboard extends Component {
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Dashboard</h1>
+            <h1 class="h2">{this.state.dash_heading}</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -192,39 +226,42 @@ class Dashboard extends Component {
             </div>
           </div>
           <div>
-       
 
-      
           {this.state.on ? null :
-          <div> 
-            <UpdateForm   updateChange={this.updateChange} 
-                              submitUpdate={this.submitUpdate} 
-                              name={this.state.name} 
-                              bio={this.state.bio}
-                              zip={this.state.zip}
-                              category={this.state.category}/> 
-            <h3>Profile pic</h3>
-            <Imageupload />
-            <h3>gallery pics</h3>
-            <PhotoComponent />
-            
-            <div className="profile-header">
-          <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
-          <h5 className="card-title">{this.state.name}</h5>
-        </div>
-        
-        <div className="card1" style={{width: 18+"rem"}}>
-          <div className="card-body">
-            
-            <h6 className="card-subtitle mb-2 text-muted">{this.state.category}</h6>
-            <p className="card-text">{this.state.bio}</p>
-          
-          </div>
-        </div>
+          <div>           
+            <div class="container">
+                <div class="row">
+                  <div class="col"> 
+                      <UpdateForm   updateChange={this.updateChange} 
+                                  submitUpdate={this.submitUpdate} 
+                                  name={this.state.name} 
+                                  bio={this.state.bio}
+                                  zip={this.state.zip}
+                                  category={this.state.category}
 
-            {this.state.artwork.map(art=> <ArtworkCards source={art.pic} /> )}
+                                  />        
+                  </div>
+                  <div class="col">
+                      <h3>Profile pic</h3>
+                      <Imageupload />
+                      <h3>gallery pics</h3>
+                      <PhotoComponent />
+                  </div>
+                </div>            
+            </div>
           </div>
           }
+
+          {this.state.profileTab ? null : <Profile 
+                                              name={this.state.name} 
+                                              bio={this.state.bio}
+                                              zip={this.state.zip}
+                                              category={this.state.category}
+                                              profilePic={this.state.profilePic}
+
+
+                                               />}
+          
           
         </div>
 
