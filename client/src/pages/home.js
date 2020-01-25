@@ -18,7 +18,7 @@ function Home(){
         */}
   
     <div className="background">
-      <div className="background-color">
+      <div id="background-color">
       </div>
       <Navbar css="home-nav" /> 
    </div> 

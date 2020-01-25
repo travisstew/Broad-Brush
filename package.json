@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/travisstew/Broad-Brush/issues"
   },
-  "homepage": "https://github.com/travisstew/Broad-Brush/client",
+  "homepage": ".",
   "dependencies": {
     "axios": "^0.19.1",
     "bcrypt": "^3.0.7",
