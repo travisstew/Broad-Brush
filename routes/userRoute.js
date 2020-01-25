@@ -139,13 +139,13 @@ router.get('/secret',withAuth ,function(req, res) {
   res.send('The password is potato');
 });
 
-router.get('/dashboard', withAuth ,function (req,res) {
-    //===token with users unique email ***> req.email <**** ===//    
-    db.User.findOne({ email:req.email }, function(err, results){
-       if(err) throw err;
-          res.send(results);
-    });
-});
+// router.get('/dashboard', withAuth ,function (req,res) {
+//     //===token with users unique email ***> req.email <**** ===//    
+//     db.User.findOne({ email:req.email }, function(err, results){
+//        if(err) throw err;
+//           res.send(results);
+//     });
+// });
 
 //====update users info====//
 router.put('/dashboard',withAuth,function (req,res) {

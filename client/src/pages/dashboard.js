@@ -92,7 +92,7 @@ class Dashboard extends Component {
   }
   
  componentDidMount=()=>{
-    axios(`/dashboard`).then(res=>{
+    axios(`/api/dashboard`).then(res=>{
       console.log(res);
             this.setState({name:res.data.name,id:res.data._id,bio:res.data.bio,category: res.data.category,profilePic:res.data.profileImg, artwork:res.data.artwork , zip:res.data.zip})           
     });  

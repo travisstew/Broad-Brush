@@ -2,6 +2,15 @@
 body{
   background:white;
 }
+/* website font */
+.kavoon{
+  font-family: 'Kavoon', cursive;
+}
+
+.navbar-logo{
+  font-family: 'Kavoon', cursive;
+  font-size: 1.5em;
+}
 #navbar{
 
   background-color: #70c1b3;

@@ -36,6 +36,13 @@ router.put('/api/user-profile/artwork',withAuth, parser.single('artwork'),functi
   }).then(function(){ });
 });
 
+router.get('/api/dashboard', withAuth ,function (req,res) {
+  //===token with users unique email ***> req.email <**** ===//    
+  db.User.findOne({ email:req.email }, function(err, results){
+     if(err) throw err;
+        res.send(results);
+  });
+});
 
 
 

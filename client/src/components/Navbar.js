@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Logout from './Logout';
 import {Link} from 'react-router-dom';
+import logo from '../img/broadbrush.png'
 class Navbar extends Component {
   state = { 
       collapsed: true,  
@@ -19,12 +20,10 @@ class Navbar extends Component {
     
     return (
       <nav id={this.props.css} className="navbar navbar-expand-lg navbar-light sticky-top">
-      {/* <a className="navbar-brand" href="/">Broad Brush
-      </a> */}
-      {/* <img src={logo}  class="d-inline-block align-top" alt=""/> */}
+
         
-      
-      <Link to="/">Broad Brush</Link>
+      {/* <img src={logo}/> */}
+      <Link to="/" className="navbar-logo "> Broad Brush </Link>
       {/* <Link to="/">Navbar</Link> */}
   
       <button onClick={this.toggleNavbar} id="navbar-toggler-border" className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
