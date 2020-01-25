@@ -17,13 +17,13 @@ import withAuth from "./components/withAuth"
 class App extends Component {
   render() {
     return (
-          <Router basename="/client" >
+          <Router basename="/" >
             <div>
           
               <div id='main'>
              
               <Switch>
-                  <Route exact path="/" component={Home} />
+                  <Route  path="/" component={Home} />
                   <Route  path="/dashboard"  component={withAuth(Dashboard) }></Route>
                   <Route path="/signin" component={SignIn}></Route>
                   <Route path="/register" component={Register}></Route>
