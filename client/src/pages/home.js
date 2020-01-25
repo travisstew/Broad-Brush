@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from '../components/Footer'
 import logo from '../img/broadbrush.png'
 import Navbar from '../components/Navbar';
-import backgrounding from '../img/ladypaint.jpg'
+
 function Home(){
   return (
     <>
