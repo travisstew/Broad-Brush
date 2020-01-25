@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from '../components/Footer'
 import logo from '../img/broadbrush.png'
 import Navbar from '../components/Navbar';
-
+import {Link} from 'react-router-dom';
 function Home(){
   return (
     <>
@@ -25,7 +25,7 @@ function Home(){
     <div className="home-heading-title">
         <h1 className="display-4">Hello, world!</h1>
         <p className="home-heading-p">It uses utility classNamees for typography and spacing to space content out within the larger container.</p>
-        <a  id="signin-btn" className="btn  btn-lg" href="/signin" role="button">Sign In</a> 
+        <Link to="/signin" id="signin-btn" className="btn  btn-lg" href="/signin" role="button">Sign In</Link> 
     </div>
     <div className="container">
         <div className="homepage-gallery-text">
