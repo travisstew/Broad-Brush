@@ -5,7 +5,7 @@ import PhotoComponent from '../components/Photo';
 import ArtworkCards from '../components/ArtwokCards';
 import Imageupload from '../components/Imageupload';
 import Navbar from '../components/Navbar';
-
+import FilesUploadComponent from "../components/files-upload.component";
 
 class Dashboard extends Component {
 
@@ -17,13 +17,19 @@ class Dashboard extends Component {
       category:'',
       zip:'',
       profilePic:'',
-      artwork:[]
+      artwork:[],
+      profileTab: false,
     }
-
+ //===toggle buttons ===//
   toggle=()=>{
     this.setState({
       on: !this.state.on
     });
+  }
+  toggleProfile=()=>{
+    this.setState({
+      profileTab:!this.state.profileTab
+    })
   }
 
   updateChange = (e)=>{
@@ -63,7 +69,7 @@ class Dashboard extends Component {
       
     return (  
       <div>
-          <Navbar css="navbar" />
+          {/* <Navbar css="navbar" /> */}
 {/*       
         <div className="profile-header">
           <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
@@ -119,10 +125,118 @@ class Dashboard extends Component {
  </div>  */}
 
 
- <Imageupload />
+ {/* <Imageupload />
  <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
- <PhotoComponent /> 
+ <PhotoComponent />  */}
+{/* 
+ <div className="container">
+    <div className="row">
+      <div className="col-sm-3">
+        <div className="row">djf</div>
+        <div className="row">djf</div>
+        <div className="row">djf</div>
+        <div className="row">djf</div>
+        <div className="row">djf</div>
+      </div>
+      <div className="col-sm-8">
+          jfdksajklfj;l
+      </div>
+    </div>
+ </div> */}
+
+ <nav id="navbar" class="navbar sticky-top flex-md-nowrap ">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">Company name</a>
+      {/* <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"/> */}
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#">Sign out</a>
+        </li>
+      </ul>
+ </nav>
+
+    <div class="container-fluid h-100">
+      <div class="row h-100">
+        <nav id="sidebar" class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item dash-side-bar">
+                <h6 onClick={this.toggle}>Dashboard</h6>
+              </li>
+              <li class="nav-item dash-side-bar">
+                <h6>Dashboard</h6>
+              </li>
+              <li class="nav-item dash-side-bar">
+                <h6>Dashboard</h6>
+              </li>
+              <li class="nav-item dash-side-bar">
+                <h6>Dashboard</h6>
+              </li>
+              
+            </ul>
+
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dashboard</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                This week
+              </button>
+            </div>
+          </div>
+          <div>
+       
+
+      
+          {this.state.on ? null :
+          <div> 
+            <UpdateForm   updateChange={this.updateChange} 
+                              submitUpdate={this.submitUpdate} 
+                              name={this.state.name} 
+                              bio={this.state.bio}
+                              zip={this.state.zip}
+                              category={this.state.category}/> 
+            <h3>Profile pic</h3>
+            <Imageupload />
+            <h3>gallery pics</h3>
+            <PhotoComponent />
+            
+            <div className="profile-header">
+          <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
+          <h5 className="card-title">{this.state.name}</h5>
+        </div>
+        
+        <div className="card1" style={{width: 18+"rem"}}>
+          <div className="card-body">
+            
+            <h6 className="card-subtitle mb-2 text-muted">{this.state.category}</h6>
+            <p className="card-text">{this.state.bio}</p>
+          
+          </div>
+        </div>
+
+            {this.state.artwork.map(art=> <ArtworkCards source={art.pic} /> )}
+          </div>
+          }
+          
+        </div>
+
+         
+        </main>
+      </div>
+    </div>
+
+
  </div>
+
+ 
     );
   }
 }

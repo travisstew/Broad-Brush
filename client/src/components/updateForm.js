@@ -1,5 +1,5 @@
 import React from 'react';
-import FilesUploadComponent from "../components/files-upload.component";
+// import FilesUploadComponent from "../components/files-upload.component";
 
 
 function UpdateForm(props){
@@ -7,7 +7,7 @@ function UpdateForm(props){
   return(
 
     <div className="update-form-wrapper">
-    <FilesUploadComponent  />
+    {/* <FilesUploadComponent  /> */}
       <form className="update-form" onSubmit={props.submitUpdate}>
         <div className="form-group">
           <label >Name</label>

@@ -115,6 +115,10 @@ body{
   padding: 3px;
 }
 /* ==== home page ==== */
+#navbar-toggler-border {
+   border-color: #F84545;
+}
+
 #signin-btn{
   /* border: solid #70C1AA 2.5px; */
   border: solid #F84545 2px;
@@ -125,6 +129,10 @@ body{
   width: 7em;
   -webkit-border-radius:4em;
   border-radius: 4em;
+  font-weight: 800;
+}
+#signin-btn:hover{
+  background: #F84545;
 }
 .logo-home{
   width:7rem;
@@ -173,13 +181,15 @@ body{
 }
 /* ======= dashboard ====== */
 
-/* .profile-header{
-  text-align: center;
+.dash-side-bar{
+  padding: 1em;
+  
+  color: grey;
 }
-.first-col{
-  padding-top:5%;
-}
-.profile-header li{
-  list-style: none;
-} */
 
+.sidebar{
+  height: 100vh;
+}
+#sidebar{
+  position: fixed;
+}
