@@ -162,7 +162,7 @@ router.put('/dashboard',withAuth,function (req,res) {
 });
 
 
-router.get('/', function (req,res) {
+
     //======zip code radius finder =======/////////
 
     // axios.default('https://www.zipcodeapi.com/rest/Zz1uX0aolXmtTANYIrWceVkKqPgNUVHjZpadQnSV1sLt4iY55ae0cmsxyUgsfY9G/radius.json/23831/10/mile').then(result=>{
@@ -174,6 +174,6 @@ router.get('/', function (req,res) {
     //   res.send(result.data)
 
     //});
-});
+
 
 module.exports = router;
