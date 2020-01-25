@@ -17,7 +17,7 @@ import withAuth from "./components/withAuth"
 class App extends Component {
   render() {
     return (
-          <Router>
+          <Router basename={'/client'}>
             <div>
           
               <div id='main'>
