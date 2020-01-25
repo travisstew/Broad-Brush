@@ -19,10 +19,12 @@ class Navbar extends Component {
     
     return (
       <nav id={this.props.css} className="navbar navbar-expand-lg navbar-light sticky-top">
-      <a className="navbar-brand" href="/">
+      {/* <a className="navbar-brand" href="/">Broad Brush
+      </a> */}
       {/* <img src={logo}  class="d-inline-block align-top" alt=""/> */}
-        Broad Brush
-      </a>
+        
+      
+      <Link to="/">Broad Brush</Link>
       {/* <Link to="/">Navbar</Link> */}
   
       <button onClick={this.toggleNavbar} id="navbar-toggler-border" className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

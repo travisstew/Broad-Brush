@@ -17,9 +17,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/travisstew/Broad-Brush/issues"
+    "url": "https://broad-brush.herokuapp.com/"
   },
-  "homepage": "https://github.com/travisstew/Broad-Brush",
+  "homepage": "",
   "dependencies": {
     "axios": "^0.19.1",
     "bcrypt": "^3.0.7",
