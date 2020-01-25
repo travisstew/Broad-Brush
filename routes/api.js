@@ -44,6 +44,19 @@ router.get('/api/dashboard', withAuth ,function (req,res) {
   });
 });
 
+router.put('/api/dashboard',withAuth,function (req,res) {
+  console.log(req.email);
+      db.User.findOneAndUpdate({email:req.email},
+        {
+        name: req.body.name,
+        bio: req.body.bio,
+        category: req.body.category,
+        zip: req.body.zip
+        }).then(function () { });
+        
+      res.end();
+});
+
 
 
 module.exports = router;

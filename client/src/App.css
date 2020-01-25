@@ -119,9 +119,7 @@ body{
 }
 
 /* ==== home page ==== */
-#navbar-toggler-border {
-   border-color: #F84545;
-}
+
 
 #signin-btn{
   /* border: solid #70C1AA 2.5px; */
@@ -211,6 +209,6 @@ body{
   width: 13rem;
   height: 14rem;
   border-radius: 50%;
-  border: coral solid;
+  border: #F84545 solid;
   padding: 3px;
 }

@@ -26,7 +26,7 @@ class Navbar extends Component {
       <Link to="/" className="navbar-logo "> Broad Brush </Link>
       {/* <Link to="/">Navbar</Link> */}
   
-      <button onClick={this.toggleNavbar} id="navbar-toggler-border" className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button onClick={this.toggleNavbar}  className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className={`${classOne} `} id="navbarNav">

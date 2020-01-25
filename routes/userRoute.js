@@ -148,18 +148,18 @@ router.get('/secret',withAuth ,function(req, res) {
 // });
 
 //====update users info====//
-router.put('/dashboard',withAuth,function (req,res) {
-  console.log(req.email);
-      db.User.findOneAndUpdate({email:req.email},
-        {
-        name: req.body.name,
-        bio: req.body.bio,
-        category: req.body.category,
-        zip: req.body.zip
-        }).then(function () { });
+// router.put('/dashboard',withAuth,function (req,res) {
+//   console.log(req.email);
+//       db.User.findOneAndUpdate({email:req.email},
+//         {
+//         name: req.body.name,
+//         bio: req.body.bio,
+//         category: req.body.category,
+//         zip: req.body.zip
+//         }).then(function () { });
         
-      res.end()
-});
+//       res.end()
+// });
 
 
 
