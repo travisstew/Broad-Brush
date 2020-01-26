@@ -139,37 +139,13 @@ router.get('/secret',withAuth ,function(req, res) {
   res.send('The password is potato');
 });
 
-// router.get('/dashboard', withAuth ,function (req,res) {
-//     //===token with users unique email ***> req.email <**** ===//    
-//     db.User.findOne({ email:req.email }, function(err, results){
-//        if(err) throw err;
-//           res.send(results);
-//     });
-// });
-
-//====update users info====//
-// router.put('/dashboard',withAuth,function (req,res) {
-//   console.log(req.email);
-//       db.User.findOneAndUpdate({email:req.email},
-//         {
-//         name: req.body.name,
-//         bio: req.body.bio,
-//         category: req.body.category,
-//         zip: req.body.zip
-//         }).then(function () { });
-        
-//       res.end()
-// });
-
-
 
     //======zip code radius finder =======/////////
 
     // axios.default('https://www.zipcodeapi.com/rest/Zz1uX0aolXmtTANYIrWceVkKqPgNUVHjZpadQnSV1sLt4iY55ae0cmsxyUgsfY9G/radius.json/23831/10/mile').then(result=>{
     // console.log(result.data);
     //     result.data.zip_codes.forEach(zip => {
-    //         console.log(zip.zip_code);
-            
+    //         console.log(zip.zip_code);       
     //     });
     //   res.send(result.data)
 

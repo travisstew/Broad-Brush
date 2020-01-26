@@ -43,7 +43,7 @@ router.get('/api/dashboard', withAuth ,function (req,res) {
         res.send(results);
   });
 });
-
+//====update users info====//
 router.put('/api/dashboard',withAuth,function (req,res) {
   console.log(req.email);
       db.User.findOneAndUpdate({email:req.email},

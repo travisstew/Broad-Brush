@@ -31,14 +31,14 @@ class Navbar extends Component {
       </button>
       <div className={`${classOne} `} id="navbarNav">
         <ul className="navbar-nav">
-          <li className="nav-item active">
+          <li className="nav-item active navbar-space">
             <Link to="/" >Home</Link>
           </li>
          
-          <li className="nav-item">
+          <li className="nav-item navbar-space">
              <Link to="/dashboard"> Profile</Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item ">
             <Logout /> 
           </li>
         

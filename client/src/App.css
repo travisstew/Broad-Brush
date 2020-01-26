@@ -182,6 +182,20 @@ body{
 .home-heading-p{
   width: 33rem;
 }
+/* === navbar ==== */
+.navbar-space{
+  padding-right: 2em;
+  text-decoration: none;
+}
+#logout-btn{
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.navbar-nav a{
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
 /* ======= dashboard ====== */
 
 .dash-side-bar{
