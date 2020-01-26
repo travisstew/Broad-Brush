@@ -13,7 +13,7 @@ import Profile from '../components/Profile';
 class Dashboard extends Component {
 
     state = { 
-      on:true,
+      
       name:'',
       bio:'',
       id:null,
@@ -23,6 +23,9 @@ class Dashboard extends Component {
       artwork:[],
       profileTab: false,
       dash_heading:'',
+      on:true,
+      gallery:true,
+      
     }
  //===toggle buttons ===//
       
@@ -31,6 +34,7 @@ class Dashboard extends Component {
       this.setState({
           on:true,
           profileTab:true,
+          gallery:true
       });
 
 
@@ -57,7 +61,17 @@ class Dashboard extends Component {
               });
             } 
           break;
-
+        case "Gallery":
+            this.setState({
+              gallery:!this.state.gallery,
+              dash_heading:"Gallery"
+            });
+            if(!this.state.profileTab){
+              this.setState({
+                dash_heading:""
+              });
+            } 
+          break;
 
         default:
           break;
@@ -90,6 +104,21 @@ class Dashboard extends Component {
         });
 
   }
+
+  imageDelete=(e)=>{
+      e.preventDefault();
+      console.log(e.target.id)
+      fetch('/api/delete', {
+        method: 'PUT',
+        body: JSON.stringify({id: e.target.id}),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(res=>{
+        window.location.reload(true);
+      });
+
+  }
   
  componentDidMount=()=>{
     axios(`/api/dashboard`).then(res=>{
@@ -99,46 +128,12 @@ class Dashboard extends Component {
  }
 
   render() { 
+    
      
       
     return (  
       <div>
-          {/* <Navbar css="navbar" /> */}
-{/*       
-        <div className="profile-header">
-          <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
-          <h5 className="card-title">{this.state.name}</h5>
-        </div>
-        
-        <div className="card1" style={{width: 18+"rem"}}>
-          <div className="card-body">
-            
-            <h6 className="card-subtitle mb-2 text-muted">{this.state.category}</h6>
-            <p className="card-text">{this.state.bio}</p>
-          
-          </div>
-        </div>
-
-       
-        <div>
-       
-
-          {this.state.on && <UpdateForm 
-                              updateChange={this.updateChange} 
-                              submitUpdate={this.submitUpdate} 
-                              name={this.state.name} 
-                              bio={this.state.bio}
-                              zip={this.state.zip}
-                              category={this.state.category}
-                              />}
-
-          <button type="button" onClick={this.toggle} className="btn btn-primary">Edit Profile</button>
-        </div>
-
-        <PhotoComponent />
-
-        {this.state.artwork.map(art=> <ArtworkCards source={art.pic} /> )
-        } */}
+ 
        
   {/* <div className="container-fluid">     
       <div className="row">
@@ -159,24 +154,7 @@ class Dashboard extends Component {
  </div>  */}
 
 
- {/* <Imageupload />
- <img id="profile-pic" src={this.state.profilePic} alt="profile pic"></img>
- <PhotoComponent />  */}
-{/* 
- <div className="container">
-    <div className="row">
-      <div className="col-sm-3">
-        <div className="row">djf</div>
-        <div className="row">djf</div>
-        <div className="row">djf</div>
-        <div className="row">djf</div>
-        <div className="row">djf</div>
-      </div>
-      <div className="col-sm-8">
-          jfdksajklfj;l
-      </div>
-    </div>
- </div> */}
+
 
  <nav id="navbar" class="navbar sticky-top flex-md-nowrap ">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0 navbar-logo" href="/">Broad Brush</a>
@@ -200,7 +178,7 @@ class Dashboard extends Component {
                 <h6 onClick={this.toggle} data-btn="Edit">Edit</h6>
               </li>
               <li class="nav-item dash-side-bar">
-                <h6>Dashboard</h6>
+              <h6 onClick={this.toggle} data-btn="Gallery">Gallery</h6>
               </li>
               <li class="nav-item dash-side-bar">
                 <h6>Dashboard</h6>
@@ -233,11 +211,11 @@ class Dashboard extends Component {
                 <div class="row">
                   <div class="col"> 
                       <UpdateForm   updateChange={this.updateChange} 
-                                  submitUpdate={this.submitUpdate} 
-                                  name={this.state.name} 
-                                  bio={this.state.bio}
-                                  zip={this.state.zip}
-                                  category={this.state.category}
+                                    submitUpdate={this.submitUpdate} 
+                                    name={this.state.name} 
+                                    bio={this.state.bio}
+                                    zip={this.state.zip}
+                                    category={this.state.category}
 
                                   />        
                   </div>
@@ -261,6 +239,15 @@ class Dashboard extends Component {
 
 
                                                />}
+
+         {
+           this.state.gallery ? null :
+          <div>
+              {this.state.artwork.map(art=>{
+               return <div key={art._id} >  <img src={`${art.pic}`} key={art._id} id={art._id}></img> <p id={art._id} onClick={this.imageDelete}>delete image</p></div>
+              })}   
+           </div>
+         }                                      
           
           
         </div>

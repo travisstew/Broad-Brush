@@ -9,6 +9,7 @@ import SignIn from "./pages/signin";
 import Register from "./pages/register";
 import Secret from "./pages/Secret";
 import withAuth from "./components/withAuth"
+import Gallery from "./pages/gallery";
 
 
 
@@ -28,6 +29,7 @@ class App extends Component {
                   <Route path="/signin" component={SignIn}></Route>
                   <Route path="/register" component={Register}></Route>
                   <Route path="/secret" component={Secret}></Route>
+                  <Route path="/gallery" component={Gallery}></Route>
                   <Route component={NotFound}></Route>
               </Switch>
 

@@ -56,7 +56,25 @@ router.put('/api/dashboard',withAuth,function (req,res) {
         
       res.end();
 });
+router.get('/api/gallery',function(req,res){
+    // db.User.find('artwork',function (err,result) {
+    //   res.send(result)
+      
+    //   });
+      db.User.find({}).populate("artwork").then(function (r) {
+          res.send(r)
+        });
+});
 
-
+router.put('/api/delete',withAuth,function (req,res) {
+  db.User.findOneAndUpdate({email:req.email},
+    {$pull:{artwork:{_id:req.body.id}}}
+    ).then(function () {
+      console.log('deleted');
+      
+     });
+    
+  res.end();
+});
 
 module.exports = router;

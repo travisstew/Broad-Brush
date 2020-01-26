@@ -9,7 +9,8 @@ import { withRouter} from 'react-router-dom';
         this.onFileChange = this.onFileChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.state = {
-            profileImg: ''
+            profileImg: '',
+            validate:''
         }
     }
 
@@ -18,7 +19,14 @@ import { withRouter} from 'react-router-dom';
     }
 
     onSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
+        if(this.state.profileImg===""){
+            this.setState({
+                validate: "upload a image first"
+            })
+           
+        }else{
+            
         const formData = new FormData()
         formData.append('profileImg', this.state.profileImg)
         
@@ -35,12 +43,15 @@ import { withRouter} from 'react-router-dom';
               throw error;
             }
           });
+
+        }
     }
 
     render() {
         return (
             <div className="container">
                 <div className="row">
+                    <p>{this.state.validate}</p>
                     <form onSubmit={this.onSubmit} encType="multipart/form-data">
                         <div className="form-group">
                             <input type="file"  onChange={this.onFileChange} />
