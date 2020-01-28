@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const cloudinary = require('cloudinary');
 const cloudinaryStorage = require('multer-storage-cloudinary');
+const axios = require('axios');
 
 require('dotenv').config();
 
@@ -45,25 +46,52 @@ router.get('/api/dashboard', withAuth ,function (req,res) {
 });
 //====update users info====//
 router.put('/api/dashboard',withAuth,function (req,res) {
-  console.log(req.email);
-      db.User.findOneAndUpdate({email:req.email},
-        {
-        name: req.body.name,
-        bio: req.body.bio,
-        category: req.body.category,
-        zip: req.body.zip
-        }).then(function () { });
-        
-      res.end();
+  // console.log(req.email);
+  // axios.default(`https://www.zipcodeapi.com/rest/Zz1uX0aolXmtTANYIrWceVkKqPgNUVHjZpadQnSV1sLt4iY55ae0cmsxyUgsfY9G/info.json/${req.body.zip}/degrees`).then(result=>{ 
+    // const city = `${result.data.city},${result.data.state}`
+    console.log(req.body.category);
+    
+        db.User.findOneAndUpdate({email:req.email},
+                {
+                name: req.body.name,
+                bio: req.body.bio,
+                category: req.body.category,
+                zip: req.body.zip,
+                // city: city
+                }).then(function () { });                
+              res.end();
+
+    // });
+
+
+     
 });
 router.get('/api/gallery',function(req,res){
-    // db.User.find('artwork',function (err,result) {
+    // db.User.find(({}),function (err,result) {
     //   res.send(result)
       
     //   });
-      db.User.find({}).select("-password").populate("artwork").then(function (r) {
-          res.send(r)
-        });
+
+
+      // db.User.find({category: "painting"}).then(function (r) {
+      //       console.log(r);
+      //       res.send(r)
+            
+            
+      //   })
+        
+       
+      db.User.find({category: "painting"}).then(function (r) {
+        console.log(r);
+        res.send(r)
+        
+        
+    })
+        
+       
+      
+
+
 });
 
 router.put('/api/delete',withAuth,function (req,res) {
@@ -76,5 +104,20 @@ router.put('/api/delete',withAuth,function (req,res) {
     
   res.end();
 });
+router.post('/api/zip', function(req,res){
 
+   axios.default(`https://www.zipcodeapi.com/rest/Zz1uX0aolXmtTANYIrWceVkKqPgNUVHjZpadQnSV1sLt4iY55ae0cmsxyUgsfY9G/radius.json/${req.body.zip}/15/mile`).then(result=>{
+    console.log(result.data);
+        
+        res.send(result.data)
+   
+
+    });
+
+  // axios.default(`https://www.zipcodeapi.com/rest/Zz1uX0aolXmtTANYIrWceVkKqPgNUVHjZpadQnSV1sLt4iY55ae0cmsxyUgsfY9G/info.json/${req.body.zip}/degrees`).then(result=>{ 
+  //        const city = `${result.data.city},${result.data.state}`
+  // });
+
+
+});
 module.exports = router;

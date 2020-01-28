@@ -30,8 +30,8 @@ const UserSchema = new mongoose.Schema({
   profileImg: {
     type: String
 },
-zip:{type:String}
-
+zip:{type:String},
+city:{type:String}
 });
 
 UserSchema.methods.isCorrectPassword = function(password,callback){

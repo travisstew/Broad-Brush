@@ -303,3 +303,43 @@ body{
   opacity:1;
 }
 
+#btn{
+  background: #F84545;
+}
+
+#homeimage{
+  float: right;
+  width: 19rem;
+  margin-right: 8rem;
+  height: 15rem;
+  margin-top: 2rem;
+  border-radius: 2%;
+}
+.footer ul{
+  list-style-type: none;
+}
+.footer a{
+  color: white;
+}
+
+@media (min-device-width:375px) and (max-device-width:500px){
+  #homeimage{
+        /* float: right; */
+    /* width: 19rem; */
+    margin-right: 8rem;
+    height: 15rem;
+    /* margin-top: 2rem; */
+    border-radius: 2%;
+  }
+
+  #local-artist{
+    font-size: 2.3rem;
+    font-weight: 700;
+    /* width: 22rem; */
+    line-height: 2.9rem;
+    width: 200px;
+  }
+  .home-heading-title{
+    display: none;
+  }
+}

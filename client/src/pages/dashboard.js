@@ -28,9 +28,7 @@ class Dashboard extends Component {
   
   
 
-  toggle=(e)=>{  
-
-      
+  toggle=(e)=>{   
       this.setState({
           on:true,
           profileTab:true,
@@ -130,6 +128,10 @@ class Dashboard extends Component {
  }
 
   render() { 
+      
+         console.log(this.state.artwork);
+         
+     
        
     return (  
       <div>
