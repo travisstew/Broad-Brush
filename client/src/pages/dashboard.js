@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import UpdateForm from '../components/updateForm';
 import axios from 'axios';
 import PhotoComponent from '../components/Photo';
-import ArtworkCards from '../components/ArtwokCards';
 import Imageupload from '../components/Imageupload';
-import Navbar from '../components/Navbar';
-import FilesUploadComponent from "../components/files-upload.component";
 import { Link } from 'react-router-dom';
 import Logout from '../components/Logout';
 import Profile from '../components/Profile';
@@ -25,12 +22,15 @@ class Dashboard extends Component {
       dash_heading:'',
       on:true,
       gallery:true,
-      
+      tabselect:false,
     }
  //===toggle buttons ===//
-      
+  
+  
 
-  toggle=(e)=>{      
+  toggle=(e)=>{  
+
+      
       this.setState({
           on:true,
           profileTab:true,
@@ -42,7 +42,8 @@ class Dashboard extends Component {
         case "Edit":
             this.setState({
                 on:!this.state.on,
-                dash_heading:"Edit"
+                dash_heading:"Edit",
+                
               });
               if(!this.state.on){
                 this.setState({
@@ -66,7 +67,7 @@ class Dashboard extends Component {
               gallery:!this.state.gallery,
               dash_heading:"Gallery"
             });
-            if(!this.state.profileTab){
+            if(!this.state.gallery){
               this.setState({
                 dash_heading:""
               });
@@ -86,6 +87,7 @@ class Dashboard extends Component {
   }
 
   submitUpdate =(e)=>{
+
         e.preventDefault();
         fetch('/api/dashboard', {
           method: 'PUT',
@@ -96,7 +98,7 @@ class Dashboard extends Component {
         })
         .then(res => {
           if (res.status === 200) {
-            // this.props.history.push('/');
+              window.location.reload(true);
           } else {
             const error = new Error(res.error);
             throw error;
@@ -117,8 +119,8 @@ class Dashboard extends Component {
       }).then(res=>{
         window.location.reload(true);
       });
-
   }
+
   
  componentDidMount=()=>{
     axios(`/api/dashboard`).then(res=>{
@@ -128,9 +130,7 @@ class Dashboard extends Component {
  }
 
   render() { 
-    
-     
-      
+       
     return (  
       <div>
  
@@ -159,6 +159,7 @@ class Dashboard extends Component {
  <nav id="navbar" class="navbar sticky-top flex-md-nowrap ">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0 navbar-logo" href="/">Broad Brush</a>
       {/* <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"/> */}
+        <h6>{`Welcome, ${this.state.name}`}</h6>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
          <Link to="signout" ><Logout /> </Link>
@@ -171,7 +172,7 @@ class Dashboard extends Component {
         <nav id="sidebar" class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
-              <li class="nav-item dash-side-bar">
+              <li class="nav-item dash-side-bar ">
                 <h6 onClick={this.toggle} data-btn="Profile">Profile</h6>
               </li>
               <li class="nav-item dash-side-bar">
@@ -244,7 +245,7 @@ class Dashboard extends Component {
            this.state.gallery ? null :
           <div>
               {this.state.artwork.map(art=>{
-               return <div key={art._id} >  <img src={`${art.pic}`} key={art._id} id={art._id}></img> <p id={art._id} onClick={this.imageDelete}>delete image</p></div>
+               return <div key={art._id} >  <img className="dash-gal-pic" src={`${art.pic}`} key={art._id} id={art._id}></img> <p className="" id={art._id} onClick={this.imageDelete}>delete image</p></div>
               })}   
            </div>
          }                                      

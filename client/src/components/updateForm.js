@@ -18,7 +18,6 @@ function UpdateForm(props){
           <label >Bio</label>
 
           <div className="input-group">
-            
             <textarea className="form-control" aria-label="With textarea" type="text" name="bio" onChange={props.updateChange} value={props.bio}></textarea>
           </div>
 
@@ -28,6 +27,7 @@ function UpdateForm(props){
         <div className="form-group">
           <label >Category</label>
           <input type="text" name="category" onChange={props.updateChange}   className="form-control" aria-describedby="emailHelp"/>
+          
           <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div className="form-group">

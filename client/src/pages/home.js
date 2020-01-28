@@ -3,6 +3,8 @@ import Footer from '../components/Footer'
 import logo from '../img/broadbrush.png'
 import Navbar from '../components/Navbar';
 import {Link} from 'react-router-dom';
+import arrow from '../img/fast-forward.png'
+
 function Home(){
   return (
     <>
@@ -33,12 +35,14 @@ function Home(){
             <img className="logo-home" src={logo} alt="logo"></img>
             <p id="local-artist" >Find Local & Nationwide Arist and Creators</p>
             
-        <form className="form-inline">
-          <p id="view-gallery">View Gallery</p>
+        <form className="form-inline " >
+        <Link to="/gallery" id="view-gallery"  ><p id="view-gallery">View Gallery</p></Link>  
           <div className="form-group mx-sm-3 mb-2">
-            <input id="zip-input" type="text" className="form-control"  placeholder="Enter Zip Code"/>
+           <Link to="/gallery" > <img  src={arrow} alt="arrow"></img></Link> 
+            {/* <input id="zip-input" type="text" className="form-control"  placeholder="Enter Zip Code"/> */}
           </div>
-          <button id="zip-button" type="submit" className="btn btn-primary mb-2">Submit</button>
+          {/* <button >Submit</button> */}
+          {/* <Link to="/gallery" id="zip-button" type="submit" className="btn btn-primary mb-2"> Submit </Link> */}
         </form>
       </div>
      

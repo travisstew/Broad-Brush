@@ -11,6 +11,9 @@ body{
   font-family: 'Kavoon', cursive;
   font-size: 1.5em;
 }
+.navbar-logo:hover{
+  color: #F84545 ;
+}
 #navbar{
 
   background-color: #70c1b3;
@@ -55,7 +58,19 @@ body{
 }
 #view-gallery{
   font-size: 1.3rem;
+  color: black;
+ 
 }
+#view-gallery:hover{
+    color:  #70c1b3;
+    cursor: pointer;
+    text-decoration: none;
+    transform: scale(1.1);
+    transition: transform .2s;
+}
+
+
+
 .homepage-gallery-text{
   padding-top: 6rem;
   padding-left: 5rem;
@@ -117,6 +132,7 @@ body{
   width: fit-content; 
   padding-left: 3rem;
 }
+/* === zip component ====*/
 
 /* ==== home page ==== */
 
@@ -201,13 +217,32 @@ body{
 .dash-side-bar{
   padding: 1em;
   color: grey;
+
 }
+.dash-side-bar h6{
+  cursor: pointer;
+}
+/* .dash-gal-pic{
+  position: absolute;
+}
+.dash-gal-pic p{
+  position: relative;
+  left: 3em;
+} */
+
 .sidebar{
   height: 100vh;
+ 
 }
 #sidebar{
   position: fixed;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+ 
 }
+
+
 .profile-div{
   padding-top: 3em;
   text-align: center;
@@ -226,3 +261,45 @@ body{
   border: #F84545 solid;
   padding: 3px;
 }
+/* === gallery page ==== */
+.category-div{
+  background: url('./img/ladypaint.jpg');
+}
+
+.gallery-image-over {
+  position:relative;
+  width:18rem;
+  height:auto;
+  box-shadow:   3px 3px 5px 6px #ccc; 
+ 
+}
+.gallery-cat  {
+  width:100%;
+  vertical-align:top;
+  -moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
+
+}
+.gallery-image-over::after{
+  /* content:'Here is some text..'; */
+  content: attr(data-content);
+  color:#fff;
+  position:absolute;
+  width:100%; 
+  height:100%;
+  top:0; left:0;
+  background:rgba(0,0,0,0.6);
+  opacity:0;
+  transition: all 0.5s;
+  font-size: 2rem;
+  -webkit-transition: all 0.5s;
+  text-align: center;
+  padding-top: 3.5rem;
+  font-family: 'Kavoon', cursive;
+  
+}
+.gallery-image-over:hover:after {
+  opacity:1;
+}
+

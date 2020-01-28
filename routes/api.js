@@ -61,7 +61,7 @@ router.get('/api/gallery',function(req,res){
     //   res.send(result)
       
     //   });
-      db.User.find({}).populate("artwork").then(function (r) {
+      db.User.find({}).select("-password").populate("artwork").then(function (r) {
           res.send(r)
         });
 });
