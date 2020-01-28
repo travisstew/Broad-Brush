@@ -19,7 +19,7 @@ function Home(){
    </div> 
     <div className="home-heading-title">
         <h1 className="display-4">Create Your Space</h1>
-        <p className="home-heading-p">It uses utility classNamees for typography and spacing to space content out within the larger container.</p>
+        <p className="home-heading-p">There is no better deliverance from the world than through art; and a man can form no surer bond with it than through art</p>
         <Link to="/signin" id="signin-btn" className="btn  btn-lg" href="/signin" role="button">Sign In</Link> 
     </div>
     <div className="container">
