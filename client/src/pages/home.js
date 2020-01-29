@@ -18,7 +18,7 @@ function Home(){
       <Navbar css="home-nav" /> 
    </div> 
     <div className="home-heading-title">
-        <h1 className="display-4">Create Your Space</h1>
+        <h1 className="display-4" style={{'font-weight': `${500}`}}>Create Your Space</h1>
         <p className="home-heading-p">There is no better deliverance from the world than through art; and a man can form no surer bond with it than through art</p>
         <Link to="/signin" id="signin-btn" className="btn  btn-lg" href="/signin" role="button">Sign In</Link> 
     </div>
