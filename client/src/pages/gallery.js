@@ -131,7 +131,7 @@ class Gallery extends Component {
                               <div class="col-sm d-flex justify-content-center">
                                   <Link to="/painting">
                                       <div class="gallery-image-over" onClick={this.category} data-btn="architecture" data-content="Architecture">
-                                          <img src={arch} class="rounded gallery-cat" alt="painting"/>
+                                          <img src={arch} style={{height:`${10}rem`}} class="rounded gallery-cat" alt="painting"/>
                                       </div>
                                  </Link>
                               </div>

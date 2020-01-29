@@ -37,11 +37,7 @@ class Painting extends Component {
           <Navbar css="navbar" />
           
             <div className="container">
-        
-            
-        
-            
-            
+ 
             </div>
             
           
