@@ -16,7 +16,7 @@ const storage = cloudinaryStorage({
   folder: "profile",
   allowedFormats: ["jpg", "png"],
   transformation: [{ width: 500, height: 500, crop: "limit" }]
-  });
+});
   const parser = multer({ storage: storage });
 
 
@@ -72,25 +72,15 @@ router.get('/api/gallery',function(req,res){
       
     //   });
 
-
       // db.User.find({category: "painting"}).then(function (r) {
       //       console.log(r);
-      //       res.send(r)
-            
-            
+      //       res.send(r)  
       //   })
-        
-       
       db.User.find({category: "painting"}).then(function (r) {
         console.log(r);
         res.send(r)
-        
-        
-    })
-        
-       
-      
-
+          
+    });
 
 });
 
@@ -104,14 +94,22 @@ router.put('/api/delete',withAuth,function (req,res) {
     
   res.end();
 });
+
+router.get('/api/profile/:id', function (req,res) {
+      console.log(req.params.id);
+      db.User.findById(`${req.params.id}`).then(e=>{
+        console.log(e);
+        res.send(e)
+});
+        
+    
+});
 router.post('/api/zip', function(req,res){
 
    axios.default(`https://www.zipcodeapi.com/rest/Zz1uX0aolXmtTANYIrWceVkKqPgNUVHjZpadQnSV1sLt4iY55ae0cmsxyUgsfY9G/radius.json/${req.body.zip}/15/mile`).then(result=>{
-    console.log(result.data);
-        
-        res.send(result.data)
+     console.log(result.data);     
+    res.send(result.data)
    
-
     });
 
   // axios.default(`https://www.zipcodeapi.com/rest/Zz1uX0aolXmtTANYIrWceVkKqPgNUVHjZpadQnSV1sLt4iY55ae0cmsxyUgsfY9G/info.json/${req.body.zip}/degrees`).then(result=>{ 

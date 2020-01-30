@@ -60,7 +60,7 @@ class SignIn extends Component {
                 <input type="password" className="form-control" name="password" value={this.state.password} onChange={this.onFormChange}/>
               </div>
               
-              <button type="submit" className="btn btn-primary">Submit</button>
+              <button type="submit" id="btn" className="btn btn-primary">Submit</button>
           </form>
           <small id="emailHelp" className="form-text text-muted">Not on Broad Brush yet? <Link to="/register">Register here</Link></small>
         </div>

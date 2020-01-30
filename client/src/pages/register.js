@@ -53,7 +53,7 @@ class Register extends Component {
                     <label >Password</label>
                     <input type="password" name="password"  class="form-control"   onChange={this.changehandler} value={this.state.password} />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" id="btn" className="btn btn-primary">Submit</button>
               </form>
               <small id="emailHelp" className="form-text text-muted">Already a user? <Link to="/signin">Sign In</Link></small>
             </div>

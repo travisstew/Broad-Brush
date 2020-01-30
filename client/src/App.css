@@ -6,7 +6,10 @@ body{
 .kavoon{
   font-family: 'Kavoon', cursive;
 }
-
+#btn{
+  background: #F84545;
+  font-weight: 900;
+}
 .navbar-logo{
   font-family: 'Kavoon', cursive;
   font-size: 1.5em;
@@ -102,13 +105,17 @@ body{
 }
 
 #card-img{
-  /* background: wheat; */
-      background-image: url('./img/headshot.png');
-     /* margin: auto; */
+      /* background-image: url('./img/headshot.png'); */
       height: 10rem;
       margin-left: 2rem;
-      border-radius: 99px;
+      border-radius: 15px;
       width: 13rem
+}
+
+#profile-card{
+  width: 18rem;
+  border: none;
+  padding-top: 5rem;
 }
 
 /* .card{

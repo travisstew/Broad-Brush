@@ -57,7 +57,7 @@ import { withRouter} from 'react-router-dom';
                             <input type="file"  onChange={this.onFileChange} />
                         </div>
                         <div className="form-group">
-                            <button className="btn btn-primary" type="submit">Upload</button>
+                            <button className="btn btn-primary" id="btn" type="submit">Upload</button>
                         </div>
                     </form>
                 </div>

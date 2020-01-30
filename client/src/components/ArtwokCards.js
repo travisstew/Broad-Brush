@@ -3,7 +3,8 @@ import React from 'react';
 function ArtworkCards(props){
     return(
       <div>
-          <img src={props.source} alt="profile"></img>
+          <h1>{props.users}</h1>
+          {/* <img src={props.users[0].pics[0]} alt="profile"></img> */}
       </div>
     )
 

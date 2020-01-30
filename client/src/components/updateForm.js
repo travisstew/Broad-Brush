@@ -42,7 +42,7 @@ function UpdateForm(props){
         </div>
         
         
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" id="btn" className="btn btn-primary">Submit</button>
 
         
       </form>

@@ -11,6 +11,7 @@ import Secret from "./pages/Secret";
 import withAuth from "./components/withAuth"
 import Gallery from "./pages/gallery";
 import Painting from "./pages/Painting";
+import Profile from "./pages/Profiles";
 
 
 
@@ -32,6 +33,7 @@ class App extends Component {
                   <Route path="/secret" component={Secret}></Route>
                   <Route path="/gallery" component={Gallery}></Route>
                   <Route path="/painting" component={Painting}></Route>
+                  <Route path="/profile/:id" component={Profile}></Route>
                   <Route component={NotFound}></Route>
               </Switch>
 
