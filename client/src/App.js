@@ -12,6 +12,8 @@ import withAuth from "./components/withAuth"
 import Gallery from "./pages/gallery";
 import Painting from "./pages/Painting";
 import Profile from "./pages/Profiles";
+import Photography from "./pages/photography";
+import Sculpting from "./pages/sculpting";
 
 
 
@@ -33,6 +35,9 @@ class App extends Component {
                   <Route path="/secret" component={Secret}></Route>
                   <Route path="/gallery" component={Gallery}></Route>
                   <Route path="/painting" component={Painting}></Route>
+                  <Route path="/photography" component={Photography}></Route>
+                  <Route path="/sculpting" component={Sculpting}></Route>
+                  <Route path="/architecture" component={Sculpting}></Route>
                   <Route path="/profile/:id" component={Profile}></Route>
                   <Route component={NotFound}></Route>
               </Switch>

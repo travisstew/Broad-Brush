@@ -31,6 +31,10 @@ function UpdateForm(props){
               <option value="painting">paint</option>
               <option value="sketch">Sketch</option>
               <option value="photo">Photo</option>
+              <option value="sculpting">sculpting</option>
+              <option value="architecture">architecture</option>
+              <option value="ceramic">ceramic</option>
+              <option value="creative">creative</option>
               <option value="other">Other</option>
             </select>
             <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>

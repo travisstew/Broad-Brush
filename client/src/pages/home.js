@@ -26,7 +26,7 @@ function Home(){
         <div className="homepage-gallery-text">
             {/* <h4 id="homepage-logo">Logo</h4> */}
             <img className="logo-home" src={logo} alt="logo"></img>
-            <img src={img2} id="homeimage" alt="home"></img>
+            <img src={img2} className="homeimage" alt="home"></img>
             <p id="local-artist" >Find Local & Nationwide Arist and Creators</p>
 
         <form className="form-inline " >

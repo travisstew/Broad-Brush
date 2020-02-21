@@ -77,7 +77,7 @@ class Gallery extends Component {
       <div>
            <Navbar css="navbar" />
             <div className="container" >
-            <div className="row">
+            {/* <div className="row">
                       <div className="col-sm-12 d-flex justify-content-center pb-5 pt-3 ">
                             <form className="form-inline" onSubmit={this.zipSubmit}>
                                   <div className="form-group mx-sm-3 mb-2">
@@ -86,7 +86,7 @@ class Gallery extends Component {
                                   <button type="submit" id='btn' class="btn btn-primary form-control-sm mb-2">Submit</button>
                             </form>
                       </div>
-                    </div>
+                    </div> */}
         {/* ======= show category bar ====== */}
 
           {this.state.showGenres && 
@@ -109,14 +109,19 @@ class Gallery extends Component {
                               </div>
                  
                               <div class="col-sm d-flex justify-content-center">
+                              <Link to="/photography">
                                   <div class="gallery-image-over" data-btn="photography" data-content="Photograpy">
                                       <img src={photography} style={{height:`${10}rem`}}   class="rounded gallery-cat" alt="painting"/>
                                   </div>
+                              </Link>
                               </div>
+                      
                               <div class="col-sm d-flex justify-content-center">
-                                  <div class="gallery-image-over" data-btn="sculpting" data-content="Sculpting">
-                                      <img src={sculpt} style={{height:`${10}rem`}}   class="rounded gallery-cat" alt="painting"/>
-                                  </div>
+                                <Link to="/sculpting">
+                                    <div class="gallery-image-over" data-btn="sculpting" data-content="Sculpting">
+                                        <img src={sculpt} style={{height:`${10}rem`}}   class="rounded gallery-cat" alt="painting"/>
+                                    </div>
+                                </Link>
                               </div>
                            
 
@@ -129,7 +134,7 @@ class Gallery extends Component {
                         <div class="row">
                         
                               <div class="col-sm d-flex justify-content-center">
-                                  <Link to="/painting">
+                                  <Link to="/architecture">
                                       <div class="gallery-image-over" onClick={this.category} data-btn="architecture" data-content="Architecture">
                                           <img src={arch} style={{height:`${10}rem`}} class="rounded gallery-cat" alt="painting"/>
                                       </div>
@@ -137,14 +142,18 @@ class Gallery extends Component {
                               </div>
                  
                               <div class="col-sm d-flex justify-content-center">
+                                <Link to="/ceramic">
                                   <div class="gallery-image-over" style={{height:`fit-content`}} data-btn="ceramic" data-content="Ceramic">
                                       <img src={ceramic} style={{height:`${10}rem`}}  class="rounded gallery-cat" alt="painting"/>
                                   </div>
+                                </Link>
                               </div>
                               <div class="col-sm d-flex justify-content-center">
+                                <Link to="/creative">
                                   <div class="gallery-image-over" style={{height:`fit-content`}} data-btn="creative" data-content="Creativity">
                                       <img src={creative}  style={{height:`${11}rem`}} class="rounded gallery-cat" alt="painting"/>
                                   </div>
+                                </Link>
                               </div>
                            
 

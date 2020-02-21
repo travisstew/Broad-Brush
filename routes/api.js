@@ -67,21 +67,32 @@ router.put('/api/dashboard',withAuth,function (req,res) {
      
 });
 router.get('/api/gallery',function(req,res){
-    // db.User.find(({}),function (err,result) {
-    //   res.send(result)
-      
-    //   });
-
-      // db.User.find({category: "painting"}).then(function (r) {
-      //       console.log(r);
-      //       res.send(r)  
-      //   })
+  
       db.User.find({category: "painting"}).then(function (r) {
         console.log(r);
-        res.send(r)
-          
+        res.send(r)     
     });
-
+});
+router.get('/api/photo',function(req,res){
+  
+      db.User.find({category: "photo"}).then(function (r) {
+        console.log(r);
+        res.send(r)     
+    });
+});
+router.get('/api/sculpting',function(req,res){
+  
+      db.User.find({category: "sculpting"}).then(function (r) {
+        console.log(r);
+        res.send(r)     
+    });
+});
+router.get('/api/architecture',function(req,res){
+  
+      db.User.find({category: "architecture"}).then(function (r) {
+        console.log(r);
+        res.send(r)     
+    });
 });
 
 router.put('/api/delete',withAuth,function (req,res) {
