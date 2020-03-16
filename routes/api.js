@@ -17,7 +17,7 @@ const storage = cloudinaryStorage({
   allowedFormats: ["jpg", "png"],
   transformation: [{ width: 500, height: 500, crop: "limit" }]
 });
-  const parser = multer({ storage: storage });
+const parser = multer({ storage: storage });
 
 
 router.put('/api/images',withAuth, parser.single("profileImg"), (req, res) => {
@@ -25,6 +25,7 @@ router.put('/api/images',withAuth, parser.single("profileImg"), (req, res) => {
     {
       profileImg: req.file.url,
     }).then(function(){ });
+    
 res.end();
 
 });
