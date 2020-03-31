@@ -9,7 +9,7 @@ App for artist to share and upload artwork to specific genres for other users to
 - install: `npm install i`
 - `create an account with cloudinary.com to store images`
 
-
+![alt text](public/broadbrushgif.gif)
 ## License 
 
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
