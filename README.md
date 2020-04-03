@@ -12,6 +12,15 @@ App for artist to share and upload artwork to specific genres for other users to
 - `clone repository`
 - install: `npm install i`
 - `create an account with cloudinary.com to store images`
+- create a `.env` file, to store clodinary password keys   
+  `TOKEN_SIGN = xxxxxxxx
+   CLOUDINARY_CLOUDNAME = xxxxx
+   CLOUDINARY_APIKEY = xxxxxxxx
+   CLOUDINARY_APISECRET = xxxxxxxxxxxxxx`
+- install mongobd https://www.mongodb.com/download-center/community
+- add schema name to app.js file `const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/yourSchemaName';`
+- to run locally `npm run dev`    
+
 
 ## License 
 
