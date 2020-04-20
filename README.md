@@ -7,8 +7,8 @@ App for artist to share and upload artwork to specific genres for other users to
 ## Installation 
 - `clone repository`
 - install: `npm install i`
-- `create an account with cloudinary.com to store images`
-
+- `create an account with cloudinary.com (dynamic media platform) to store images or videos`
+- ``
 ![alt text](public/broadbrushgif.gif)
 ## License 
 
